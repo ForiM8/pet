@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./components/header/header";
-import { Main } from "./components/main/main";
+import { Header } from "./pages/header/header";
+import { Main } from "./pages/main/main";
 
 
 function App() {

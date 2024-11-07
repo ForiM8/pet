@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Care pro Black";
+    src: url("../../../public/fonts/TypeMates/Cera-Pro-Black-Demo.woff");
+}
+
+.main__container__welcome {
+    display: flex;
+    width: 1200px;
+    background-color: #F5F5F580;
+    height: 450px;
+    left: 7.05%;
+    margin-top: 12px;
+
+
+    .main__container__welcome_text {
+        display: flex;
+        flex-direction: column;
+        width: 560px;
+        height: 297px;
+        margin-top: 68px;
+        margin-left: 40px;
+        //background-color: #46A358;
+
+        .main__container__welcome_text-Sredne {
+            font-family: "Care pro";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: #3D3D3D;
+        }
+
+        .main__container__welcome_text-Big {
+            font-family: "Care pro Black";
+            font-weight: 900;
+            font-size: 70px;
+            line-height: 70px;
+            color: #3D3D3D;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            width: auto;
+            height: auto;
+
+            //background-color: aquamarine;
+            .main__container__welcome_text-BigSpan {
+                color: #46A358;
+            }
+        }
+
+        .main__container__welcome_text-Small {
+            font-family: "Care pro";
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #727272;
+            width: 557px;
+        }
+    }
+
+    .main__container__welcome_image {
+        width: 518px;
+        height: 450px;
+        //background-color: aquamarine;
+        background-image: url("../../../public/png/kustwelcome.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: auto;
+
+        .main__container_welcome_image-small {
+            //position: absolute;
+            width: 135px;
+            height: 135px;
+            //background-color: rgb(0, 0, 0);
+            background-image: url("../../../public/png/kustsmallwelcome.png");
+            margin-top: 300px;
+        }
+    }
+
+    .main__container__welcome_text_button {
+        width: 140px;
+        height: 40px;
+        margin-top: 44px;
+        border-radius: 6px;
+        border: none;
+        background-color: #46A358;
+        color: #ffff;
+        font-family: "Care pro";
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        cursor: pointer;
+    }
+}
+
+.main__container__main {
+    width: 1200px;
+    background-color: aqua;
+    height: auto;
+    margin-top: 26px;
+    display: flex;
+
+    .main__container__main_colunLeft {
+        width: 310px;
+        height: 1244px;
+        background-color: #727272;
+
+        .main__container__main_colunLeft_categories {
+            width: 268px;
+            height: 383px;
+            background-color: #46A358;
+            margin-left: 18px;
+            margin-top: 14px;
+            font-family: "Care pro";
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+            margin-bottom: 36px;
+
+            .main__container__main_colunLeft_categories-categories {
+                width: 256px;
+                height: 360px;
+                margin-left: auto;
+                margin-top: 7px;
+                background-color: aquamarine;
+            }
+        }
+
+        .main__container__main_colunLeft_priceRange {
+            width: 226px;
+            height: 133px;
+            background-color: #46A358;
+            margin-left: 18px;
+            font-family: "Care pro";
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+            margin-bottom: 46px;
+
+            .main__container__main_colunLeft_priceRange-range {
+                width: 214px;
+                height: 97px;
+                margin-top: 20px;
+                margin-left: auto;
+                background-color: aquamarine;
+            }
+        }
+
+        .main__container__main_colunLeft_size {
+            width: 268px;
+            height: 143px;
+            background-color: #46A358;
+            margin-left: 18px;
+            margin-top: 14px;
+            font-family: "Care pro";
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+            margin-bottom: 19px;
+
+            .main__container__main_colunLeft_size-size {
+                width: 256px;
+                height: 120px;
+                margin-left: auto;
+                margin-top: 7px;
+                background-color: aquamarine;
+            }
+        }
+
+        .main__container__main_colunLeft_banner {
+            width: 268px;
+            height: 470px;
+            margin-left: 18px;
+            background-color: #46A358;
+        }
+    }
+
+    .main__container__main_colunRight {
+        width: 840px;
+        height: 1244px;
+        background-color: #727272;
+        margin-left: 50px;
+        background-image: url("");
+    }
+}

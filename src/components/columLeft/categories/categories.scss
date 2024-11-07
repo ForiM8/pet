@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Care pro Italic";
+    src: url("../../../../public/fonts/TypeMates/Cera-Pro-Thin-Demo.otf");
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Care pro Italic";
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 40px;
+}
