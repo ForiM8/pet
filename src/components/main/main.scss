@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Care pro Black";
+    src: url("../../../public/fonts/TypeMates/Cera-Pro-Black-Demo.woff");
+}
+
+.main__container__welcome{
+    width: 1200px;
+    background-color: #F5F5F580;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+
+
+    .main__container__welcome-text{
+        display: flex;
+        flex-direction: column;
+        width: 560px;
+        height: 297px;
+        margin-top: 68px;
+        margin-left: 40px;
+        background-color: #46A358;
+
+        .main__container__welcome-textSredne{
+            font-family: "Care pro";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: #3D3D3D;
+        }
+
+        .main__container__welcome-textBig{
+            font-family: "Care pro Black";
+            font-weight: 900;
+            font-size: 70px;
+            line-height: 70px;
+            color: #3D3D3D;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            width: auto;
+            height: auto;
+            //background-color: aquamarine;
+            .main__container__welcome-textBigSpan{
+                color: #46A358;
+            }
+        }
+
+        .main__container__welcome-textSmall{
+            font-family: "Care pro";
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #727272;
+            width: 557px;
+        }
+    }
+}
