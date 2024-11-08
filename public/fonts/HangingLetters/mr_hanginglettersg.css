@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'mr_HangingLettersG';
+	src: url('../fonts/mr_hanginglettersg.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/mr_hanginglettersg.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/mr_hanginglettersg.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/mr_hanginglettersg.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/mr_hanginglettersg.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/mr_hanginglettersg.svg#mr_hanginglettersg') format('svg'); /* Chrome < 4, Legacy iOS */
+}

@@ -3,7 +3,7 @@ import "./main.scss"
 
 export const Main = () => {
     return (
-        <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div className="main__container__welcome">
 
                 <div className="main__container__welcome_text">
@@ -63,15 +63,30 @@ export const Main = () => {
                     </div>
 
                     <div className="main__container__main_colunLeft_banner">
-
-
+                        <div className="main__container__main_colunLeft_banner-title">Super Sale</div>
+                        <div className="main__container__main_colunLeft_banner-sale">UP TO 75% OFF</div>
+                        <div className="main__container__main_colunLeft_banner-image"></div>
                     </div>
 
                 </div>
 
                 <div className="main__container__main_colunRight">
 
-                    
+                    <div className="main__container__main_colunRight_filter">
+                        <div className="main__container__main_colunRight_filter__plans">
+                            <div className="main__container__main_colunRight_filter__plans-item">All Plants</div>
+                            <div className="main__container__main_colunRight_filter__plans-item">New Arrivals</div>
+                            <div className="main__container__main_colunRight_filter__plans-item">Sale</div>
+                        </div>
+                        <div className="main__container__main_colunRight_filter__filter">
+                            <div className="main__container__main_colunRight_filter__filter-item">Short by:</div>
+                            <div className="main__container__main_colunRight_filter__filter-item">Default sorting</div>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.6666 5.66663L7.99998 10.3333L3.33331 5.66663" stroke="#3D3D3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
