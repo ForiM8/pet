@@ -1,0 +1,257 @@
+.footer__container {
+    width: 1200px;
+    height: 610px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .footer__container__color {
+        width: 1200px;
+        height: 574px;
+        background-color: #FBFBFB;
+
+        .footer__container__color__top {
+            width: 1200px;
+            height: 250px;
+            background-color: #FBFBFB;
+            box-sizing: border-box;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .footer__container__color__top__left {
+                display: flex;
+
+                .footer__container__color__top__left__block {
+                    width: 239px;
+                    height: 201px;
+                    //background-color: aqua;
+                    border-right: 2px solid #46A3581A;
+                    margin-right: 35px;
+
+                    .footer__container__color__top__left__block-imgOne {
+                        width: 77px;
+                        height: 95px;
+                        background-image: url("../../../public/png/footer/kaktusOne.png");
+                        margin-bottom: 15px;
+                    }
+
+                    .footer__container__color__top__left__block-imgTwo {
+                        width: 83px;
+                        height: 90px;
+                        background-image: url("../../../public/png/footer/kaktusTwo.png");
+                        margin-bottom: 20px;
+                    }
+
+                    .footer__container__color__top__left__block-imgTree {
+                        width: 90px;
+                        height: 89px;
+                        background-image: url("../../../public/png/footer/kaktusTree.png");
+                        margin-bottom: 21px;
+                    }
+
+                    .footer__container__color__top__left__block-bigText {
+                        font-family: "Care pro";
+                        font-weight: 700;
+                        font-size: 17px;
+                        line-height: 16px;
+                        margin-bottom: 9px;
+                        color: #3D3D3D;
+                    }
+
+                    .footer__container__color__top__left__block-smallText {
+                        font-family: "Care pro";
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 22px;
+                        width: 204px;
+                        color: #727272;
+                    }
+                }
+
+                .footer__container__color__top__left__block:last-child {
+                    border: none;
+                    margin-right: 0px;
+                }
+            }
+
+            .footer__container__color__top__right {
+                width: 354px;
+                height: 180px;
+                //background-color: #727272;
+
+                .footer__container__color__top__right-bigText {
+                    font-family: "Care pro";
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 16px;
+                    margin-bottom: 18px;
+                }
+
+                .footer__container__color__top__right__inputBlock {
+                    margin-bottom: 18px;
+
+                    .footer__container__color__top__right__inputBlock-input {
+                        border: none;
+                        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.06);
+                        background-color: #FFFFFF;
+                        width: 269px;
+                        height: 40px;
+                        border-top-left-radius: 6px;
+                        border-bottom-left-radius: 6px;
+                        padding: 12px;
+                        box-sizing: border-box;
+                        font-family: "Care pro";
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        color: rgba(172, 172, 172, 1);
+                    }
+
+                    .footer__container__color__top__right__inputBlock-button {
+                        font-family: "Care pro";
+                        font-weight: 700;
+                        font-size: 18px;
+                        line-height: 16px;
+                        width: 85px;
+                        height: 40px;
+                        border-top-right-radius: 6px;
+                        border-bottom-right-radius: 6px;
+                        border: none;
+                        background-color: #46A358;
+                        color: #FFFFFF;
+                    }
+                }
+
+                .footer__container__color__top__right-smallText {
+                    font-family: "Care pro";
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 22px;
+                    color: #727272;
+                }
+            }
+        }
+
+        .footer__container__color__center {
+            width: 1199px;
+            height: 88px;
+            background: #46A3581A;
+            border-top: 2px solid #46A3581A;
+            border-bottom: 2px solid #46A3581A;
+            padding-left: 23px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+
+            .footer__container__color__center__logo {
+                width: 150px;
+                height: 34.3px;
+                background-image: url("../../../public/png/footer/Logo.png");
+                margin-right: 87px;
+                //background-color: #46A358;
+            }
+
+            .footer__container__color__center__contact {
+                width: 205px;
+                height: 44px;
+                margin-right: 75px;
+                //background-color: #46A358;
+                display: flex;
+                align-items: center;
+
+                .footer__container__color__center__contact-img {
+                    width: 20px;
+                    height: 20px;
+                    background-image: url("../../../public/png/footer/Location.png");
+                }
+
+                .footer__container__color__center__contact-text {
+                    font-family: "Care pro";
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #3D3D3D;
+                    width: 176px;
+                    margin-left: 9px;
+                }
+
+            }
+
+            .footer__container__color__center__contact:last-child {
+                margin-left: 0px;
+            }
+        }
+
+        .footer__container__color__bottom {
+            width: 100%;
+            height: 236px;
+            background-color: #FBFBFB;
+            border-bottom: 2px solid #46A3581A;
+            box-sizing: border-box;
+            padding-top: 33px;
+            padding-left: 23px;
+            display: flex;
+
+            .footer__container__color__bottom__container {
+                width: auto;
+                max-width: 803px;
+                height: 174px;
+                display: grid;
+                grid-template-columns: repeat(3, 278px);
+
+                .footer__container__color__bottom__container__block {
+                    width: 137px;
+                    height: 174px;
+                    //background-color: #46A358;
+
+                    .footer__container__color__bottom__container__block-bigText {
+                        font-family: "Care pro";
+                        font-weight: 700;
+                        font-size: 18px;
+                        line-height: 16px;
+                        color: #3D3D3D;
+                        margin-bottom: 8px;
+                    }
+
+                    .footer__container__color__bottom__container__block-smalltext {
+                        font-family: "Care pro";
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 30px;
+                        color: #3D3D3D;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .footer__container__color__bottom__social {
+                width: 224px;
+                height: 154px;
+                //background-color: aqua;
+
+                .footer__container__color__bottom__social-bigText {
+                    font-family: "Care pro";
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 16px;
+                    color: #3D3D3D;
+                    margin-bottom: 20px;
+                }.footer__container__color__bottom__social-bigText:last-child{
+                    margin-bottom: 13px;
+                }
+                .footer__container__color__bottom__social-social{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 33px;
+                }
+                .footer__container__color__bottom__social-pay{
+                    width: 224px;
+                    height: 26px;
+                    background-image: url("../../../public/png/footer/mastercard.png");
+                }
+            }
+        }
+    }
+}

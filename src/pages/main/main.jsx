@@ -1,5 +1,8 @@
-import { Categories } from "../../components/columLeft/categories/categories"
-import { Products } from "../../components/columRight/product"
+import { Categories } from "../../components/main/columLeft/categories/categories"
+import { Products } from "../../components/main/columRight/product"
+import { FindMore } from "../../components/main/findMore/findMore"
+import { OurBlock } from "../../components/main/ourBlock/ourBlock"
+import { PageNumber } from "../../components/main/pageNumber/pageNumber"
 import "./main.scss"
 
 export const Main = () => {
@@ -102,11 +105,62 @@ export const Main = () => {
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
-                        
                     </div>
-                    
+
                 </div>
 
+            </div>
+
+            <div className="main__container__papgeNumber">
+                <PageNumber className={"main__container__papgeNumber__button-active"} text={'1'} />
+                <PageNumber className={"main__container__papgeNumber__button"} text={'2'} />
+                <PageNumber className={"main__container__papgeNumber__button"} text={'3'} />
+                <PageNumber className={"main__container__papgeNumber__button"} text={'4'} />
+                <PageNumber className={"main__container__papgeNumber__button"} text={'5'} />
+            </div>
+
+            <div className="main__container__offers">
+                <FindMore
+                    bigText={'SUMMER CACTUS & SUCCULENTS'}
+                    main__container__offers__columLeft__back__img={'main__container__offers__columLeft__back__img-left'}
+                />
+                <FindMore
+                    bigText={'STYLING TRNDS & MUCH MORE'}
+                    main__container__offers__columLeft__back__img={'main__container__offers__columLeft__back__img-right'}
+                />
+            </div>
+
+            <div className="main__container__ourBlock">
+                <div className="main__container__ourBlock__header">
+                    <div className="main__container__ourBlock__header-bigTest">Our Blog Posts</div>
+                    <div className="main__container__ourBlock__header-smallText">We are an online plant shop offering a wide range of cheap and trendy plants. </div>
+                </div>
+                <div className="main__container__ourBlock__main">
+                    <OurBlock
+                        greenText={'September 12  I Read in 6 minutes'}
+                        bigText={"Cactus & Succulent Care Tips"}
+                        smallText={'Cacti are succulents are easy care plants for any home or patio.'}
+                        className={'main__container__ourBlock__main__block-imgOne'}
+                    />
+                    <OurBlock
+                        greenText={'September 13  I Read in 2 minutes'}
+                        bigText={"Top 10 Succulents for Your Home"}
+                        smallText={'Best in hanging baskets. Prefers medium to high light.'}
+                        className={'main__container__ourBlock__main__block-imgTwo'}
+                    />
+                    <OurBlock
+                        greenText={'September 15  I Read in 3 minutes'}
+                        bigText={"Cacti & Succulent Care Tips"}
+                        smallText={'Cacti and succulents thrive in containers and because most are..'}
+                        className={'main__container__ourBlock__main__block-imgTree'}
+                    />
+                    <OurBlock
+                        greenText={'September 15  I Read in 2 minutes'}
+                        bigText={"Best Houseplants Room by Room"}
+                        smallText={'The benefits of houseplants are endless. In addition to..'}
+                        className={'main__container__ourBlock__main__block-imgFour'}
+                    />
+                </div>
             </div>
         </div>
     )
