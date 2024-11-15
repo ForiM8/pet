@@ -88,6 +88,7 @@
                 border-radius: 8px;
                 margin-left: 30px;
                 cursor: pointer;
+                border: none;
 
                 .container__block__icon__login-png {
                     background-image: url("../../../public/png/Logout.png");
@@ -109,3 +110,6 @@
         }
     }
 }
+
+
+

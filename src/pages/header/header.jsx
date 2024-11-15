@@ -1,7 +1,25 @@
 import { Link } from "react-router-dom"
 import "./header.scss"
+import { useEffect, useState } from "react";
+import { getProducts } from "../../components/request/request-product";
+import { Modal } from "../../components/modal/modal";
+import { Login, Name } from "../../components/header/login/login";
+import { Input } from "../../components/input/input";
+import { useForm } from "react-hook-form";
+import { useAuth } from "../../components/context/authContext/authContext";
+import { useModalRegister } from "../../components/context/modalContext/modalContext";
+import { ModalRegister } from "../../components/modal/modalRegister";
+import { Register, Registerr } from "../../components/header/register/register";
+
 
 export const Header = () => {
+
+
+
+    const { modalActiveRegister, setModalActiveRegister, modalActive, setModalActive } = useModalRegister()
+
+    const {isAuth, setIsAuth} = useAuth()
+
     return (
         <div className="header__container">
             <div className="container__block">
@@ -50,12 +68,22 @@ export const Header = () => {
                         </div>
                         <div className="container__block__icon__block-count">0</div>
                     </div>
+                    <button className="container__block__icon__login" onClick={() => setModalActive(prev => !prev)}>
+                        {isAuth && (
+                            <div className="container__block__icon__login-png"></div>
+                        )}{isAuth && (
+                            <div className="container__block__icon__login-text">Login</div>
+                        )}{!isAuth && (
+                            <div className="container__block__icon__login-text">{Name}</div>
+                        )}
+                    </button>
+                    <Modal active={modalActive} setActive={setModalActive}>
+                        <Login />
+                    </Modal>
+                    <ModalRegister activeRegister={modalActiveRegister} setActiveRegister={setModalActiveRegister}>
+                        <Register />
+                    </ModalRegister>
 
-                    <div className="container__block__icon__login">
-                        <div className="container__block__icon__login-png"></div>
-                        <div className="container__block__icon__login-text">Login</div>
-
-                    </div>
                 </div>
             </div>
         </div>

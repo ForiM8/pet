@@ -1,11 +1,43 @@
+import { useEffect, useState } from "react"
 import { Categories } from "../../components/main/columLeft/categories/categories"
 import { Products } from "../../components/main/columRight/product"
 import { FindMore } from "../../components/main/findMore/findMore"
 import { OurBlock } from "../../components/main/ourBlock/ourBlock"
 import { PageNumber } from "../../components/main/pageNumber/pageNumber"
 import "./main.scss"
+import { getPost } from "../../components/request/request"
 
 export const Main = () => {
+    const [isLoading, setIsLoadingPromo] = useState(false);
+    const [listPromo, setListPromo] = useState([]);
+    const [error, setError] = useState({
+        status: false,
+        message: "",
+    });
+
+    //  const { isAuth } = useAuth()
+    //  console.log(isAuth)
+    useEffect(() => {
+        setIsLoadingPromo(true);
+        getPost()
+            .then((data) => {
+                if (data.data && data.status === 200) {
+                    setListPromo(data.data);
+                }
+            })
+            .catch((error) =>
+                setError({ status: true, message: Error(error).message })
+            )
+            .finally(() => setIsLoadingPromo(false));
+    }, []);
+
+    if (isLoading) {
+        return <div className="loading__container">loading...</div>;
+    }
+    if (error.status) {
+        return <div className="loading__container">{error.message}</div>;
+    }
+
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div className="main__container__welcome">
@@ -96,6 +128,7 @@ export const Main = () => {
                     </div>
 
                     <div className="main__container__main__columRight__container__product">
+                        {/* <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
@@ -103,8 +136,14 @@ export const Main = () => {
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
-                        <Products title={"Barberton Daisy"} price={"$119.00"} />
-                        <Products title={"Barberton Daisy"} price={"$119.00"} />
+                        <Products title={"Barberton Daisy"} price={"$119.00"} />      */}
+                        {listPromo.map((elem) => (
+                            <div className="main__container__main__columRight__container__product__item">
+                                <img className="main__container__main__columRight__container__product__item-image" src={elem.img}></img>
+                                <div className="main__container__main__columRight__container__product__item-title">{elem.title}</div>
+                                <div className="main__container__main__columRight__container__product__item-price">{elem.price}</div>
+                            </div>
+                        ))}
                     </div>
 
                 </div>

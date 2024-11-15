@@ -1,0 +1,222 @@
+.modal__contentLogin {
+    width: 500px;
+    height: 590px;
+    background-color: #FFFFFF;
+    border-bottom: 10px solid #46A358;
+    box-sizing: border-box;
+    padding: 50px 100px 58px 100px;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.2);
+    transition: .4s all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    .modal__contentLogin__header {
+        width: 157px;
+        height: 16px;
+        //background-color: #A2D0AB;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 53px;
+
+        .modal__contentLogin__header-login {
+            font-family: "Care pro";
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 16px;
+            color: #46A358;
+            background-color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal__contentLogin__header-register {
+            font-family: "Care pro";
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 16px;
+            background-color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .modal__contentLogin__inputBox {
+        width: 301px;
+        height: 229px;
+        //background-color: #A2D0AB;
+
+        .modal__contentLogin__inputBox-smallText {
+            font-family: "Care pro";
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 16px;
+            margin-bottom: 14px;
+            color: #3D3D3D;
+        }
+
+        .wrapper {
+            position: relative;
+            margin-bottom: 17px;
+
+            .modal__contentLogin__inputBox__input {
+                color: #4D4D4D;
+                font-size: 16px !important;
+                height: 40px !important;
+                width: 300px !important;
+                outline: none;
+                border: 1px solid #EAEAEA !important;
+                padding-left: 14px;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+
+            .modal__contentLogin__inputBox__input:focus {
+                border: 1px solid #46A358
+            }
+
+            .modal__contentLogin__inputBox__input:last-child {
+                margin-bottom: 14px;
+            }
+
+            .modal__contentLogin__inputBox__label {
+                position: absolute;
+                height: 24px;
+                top: 0.6rem;
+                left: 16px;
+                color: #A5A5A5;
+                font-size: 16px;
+                font-weight: 4000;
+                transition: 0.4s all;
+                padding-inline: .25rem;
+            }
+
+            .modal__contentLogin__inputBox__input:focus~.modal__contentLogin__inputBox__label,
+            .modal__contentLogin__inputBox__input:valid~.modal__contentLogin__inputBox__label {
+                top: -0.7rem;
+                left: .5rem;
+                background-color: #fff;
+            }
+        }
+
+        .modal__contentLogin__inputBox__forgot {
+            font-family: 'Care pro';
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16px;
+            text-align: right;
+            color: #46A358;
+            margin-bottom: 27px;
+        }
+
+        .modal__contentLogin__inputBox__button {
+            width: 300px;
+            height: 45px;
+            top: 463px;
+            left: 570px;
+            gap: 0px;
+            border-radius: 5px;
+            opacity: 0px;
+            background-color: #46A358;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Care pro';
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+    }
+
+    .modal__contentLogin__orLogin {
+        margin-top: 46px;
+        width: 301px;
+        height: 138px;
+
+        //background-color: #46A358;
+        .modal__contentLogin__orLogin__boxLine {
+            width: 300px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 27px;
+
+            .modal__contentLogin__orLogin__boxLine-lineOne {
+                width: 101px;
+                height: 1px;
+                background-color: #EAEAEA;
+            }
+
+            .modal__contentLogin__orLogin__boxLine-text {
+                font-family: 'Care pro';
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #3D3D3D;
+
+
+            }
+
+            .modal__contentLogin__orLogin__boxLine-lineTwo {
+                width: 100px;
+                height: 1px;
+                background-color: #EAEAEA;
+            }
+        }
+
+        .modal__contentLogin__orLogin-button {
+            width: 300px;
+            height: 40px;
+            top: 463px;
+            left: 570px;
+            gap: 0px;
+            border-radius: 5px;
+            opacity: 0px;
+            background-color: #FFFFFF;
+            color: #727272;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Care pro';
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 16px;
+            border: 1px solid #EAEAEA;
+            margin-bottom: 15px;
+
+            .modal__contentLogin__orLogin-buttonImageGoogle{
+                width: 20px;
+                height: 20px;
+                background-image: url('../../../../public/svg/header/google.svg');
+                margin-right: 10px;
+                border: none;
+            }
+            .modal__contentLogin__orLogin-buttonImageFacebook{
+                width: 20px;
+                height: 20px;
+                background-image: url('../../../../public/svg/header/facebook.svg');
+                margin-right: 4px;
+            }
+        }
+
+        .modal__contentLogin__orLogin-button:last-child {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.modal__contentLogin.active {
+    transform: scale(1);
+}
