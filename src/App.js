@@ -4,6 +4,7 @@ import { Main } from "./pages/main/main";
 import { Footer } from "./pages/footer/footer";
 import { ModallRegisterContext } from "./components/context/modalContext/modalContext";
 import { AuthhContext } from "./components/context/authContext/authContext";
+import { Profile } from "./pages/profile/profile";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
             <Routes>
               <Route path={'/'} element={<Main />} />
+              <Route path={'/profile'} element={<Profile />} />
             </Routes>
 
             <Footer />

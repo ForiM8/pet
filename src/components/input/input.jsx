@@ -3,21 +3,21 @@ export const Input = ({
     initialValue = null,
     register,
     name,
-    errors = [],
     label,
     validate = {},
     classNameLabel,
-    classNameInput
+    classNameInput,
+    classNameWrapper,
+    labelSymbol
 }) => {
     return (
-        <div className='wrapper'>
+        <div className={classNameWrapper}>
             <input {...register(name, validate)}
                 defaultValue={initialValue}
                 type={input_type}
                 className={classNameInput}
                 required="required" />
-            <label className={classNameLabel}>{label}</label>
-           
+            <label className={classNameLabel} style={{ display: 'flex' }}>{label} <div style={{color:"#F03800", marginLeft:'3px'}}>{labelSymbol}</div></label>
         </div>
     )
 }

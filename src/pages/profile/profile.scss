@@ -1,0 +1,278 @@
+.containerProfile {
+    width: 1200px;
+    height: 711px;
+    //background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 61px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+
+    .columLeft {
+        width: 310px;
+        height: 431px;
+        background-color: #FBFBFB;
+
+
+        &__header {
+            margin-top: 17px;
+            margin-left: 18px;
+            font-family: Care pro;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+
+        &__container {
+            height: 315px;
+            width: 100%;
+            //background-color: aquamarine;
+            margin-top: 15px;
+
+            &__elementActive {
+                width: 100%;
+                height: 39px;
+                //background-color: rgb(215, 191, 191);
+                margin-bottom: 7px;
+                padding-left: 23px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                background-color: #FFFFFF;
+                border-left: 4px solid #46A358;
+
+                &-svg {
+                    margin-right: 11px;
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &-textActive {
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 45px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+
+                    color: #46A358;
+                }
+            }
+
+            &__element {
+                width: 100%;
+                height: 39px;
+                //background-color: rgb(215, 191, 191);
+                margin-bottom: 7px;
+                padding-left: 23px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+
+                &-svg {
+                    margin-right: 11px;
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &-text {
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 45px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+
+                    color: #727272;
+                }
+            }
+
+            &__element:last-child {
+                margin-bottom: 0px;
+            }
+
+            &-line {
+                margin-top: 10px;
+                width: 99, 1%;
+                height: 0.3px;
+                background-color: #46A35880;
+                opacity: 50%;
+            }
+
+            &__logout {
+                margin-top: 19px;
+                width: 78px;
+                height: 20px;
+                background: none;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                font-family: Care pro;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 15px;
+                color: #46A358;
+                margin-left: 25px;
+                align-items: center;
+                cursor: pointer;
+
+                &-svg {
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../../../public/svg/profile/Logout.svg');
+                }
+            }
+        }
+    }
+
+    .columRight {
+        &__container {
+            width: 862px;
+            height: 711px;
+            //background-color: rgb(255, 255, 255);
+
+            &-header {
+                font-family: Care pro;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #3D3D3D;
+                margin-bottom: 20px;
+            }
+
+            &__personal {
+                width: 100%;
+                height: auto;
+                //background-color: #727272;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(296px, 1fr));
+                //margin-bottom: 20px;
+                //column-gap: 33px;
+
+
+                &__wrapper {
+                    width: 417px;
+                    height: 65px;
+                    position: relative;
+                    //background-color: antiquewhite;
+                    margin: auto auto 30px 0px;
+
+                    &-label {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 15px;
+                        color: #3D3D3D;
+                    }
+
+                    &-input {
+                        width: 99%;
+                        height: 40px;
+                        position: absolute;
+                        bottom: 0px;
+                        border-radius: 3px;
+                        border: 1px solid #EAEAEA;
+                        background: none;
+                    }
+                }
+
+
+                &__photo {
+                    width: 245px;
+                    height: 72px;
+                    display: flex;
+                    flex-direction: column;
+                    //background-color: #2b2c2b;
+
+                    &-header {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 15px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #3D3D3D;
+                        margin-bottom: 7px;
+                    }
+
+                    &__block {
+                        display: flex;
+                        align-items: center;
+
+                        &-image {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            background-color: #EAEAEA;
+                            margin-right: auto;
+                            background-image: url('../../../public/svg/profile/photo.svg');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+
+                        &-change {
+                            width: 98px;
+                            height: 40px;
+                            background-color: #46A358;
+                            border-radius: 3px;
+                            border: none;
+                            font-family: Care pro;
+                            font-size: 14px;
+                            font-weight: 700;
+                            line-height: 16px;
+                            text-align: center;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: #FFFFFF;
+                        }
+
+                        &-remove {
+                            width: 71px;
+                            height: 40px;
+                            background: none;
+                            border: none;
+                            font-family: Care pro;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 16px;
+                            text-align: right;
+                            color: #3D3D3D;
+                        }
+                    }
+                }
+            }
+
+            &__password {
+                width: 417px;
+                height: 345px;
+                //background-color: aqua;
+
+                &-button {
+                    width: 131px;
+                    height: 40px;
+                    background-color: #46A358;
+                    border-radius: 3px;
+                    border: none;
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: center;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

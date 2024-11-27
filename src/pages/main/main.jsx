@@ -6,8 +6,19 @@ import { OurBlock } from "../../components/main/ourBlock/ourBlock"
 import { PageNumber } from "../../components/main/pageNumber/pageNumber"
 import "./main.scss"
 import { getPost } from "../../components/request/request"
+import { useAuth } from "../../components/context/authContext/authContext"
+import { getProducts, removeOneProduct } from "../../components/request/request-product"
+import { CreateProduct } from "./create-product"
+import { EditProduct } from "./edit-product"
 
 export const Main = () => {
+
+    const { adminTrue } = useAuth()
+
+    const [products, setProducts] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [isEdit, setIsEdit] = useState({ status: false, id: null });
     const [isLoading, setIsLoadingPromo] = useState(false);
     const [listPromo, setListPromo] = useState([]);
     const [error, setError] = useState({
@@ -15,8 +26,8 @@ export const Main = () => {
         message: "",
     });
 
-    //  const { isAuth } = useAuth()
-    //  console.log(isAuth)
+    //   const { isAuth } = useAuth();
+    //   console.log(isAuth)
     useEffect(() => {
         setIsLoadingPromo(true);
         getPost()
@@ -37,6 +48,29 @@ export const Main = () => {
     if (error.status) {
         return <div className="loading__container">{error.message}</div>;
     }
+
+
+
+
+    const addProduct = () => {
+        setIsModalOpen(true);
+    };
+
+
+
+    const removeProduct = (id) => {
+        removeOneProduct(id)
+            .then(({ }) => {
+                setProducts((prevValue) =>
+                    prevValue.filter((product) => product.id !== id)
+                );
+            })
+            .catch(() => alert("Ошибка"));
+    };
+
+    const onCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -84,8 +118,8 @@ export const Main = () => {
 
                     <div className="main__container__main_colunLeft_priceRange">
                         Price Range
-                        <div className="main__container__main_colunLeft_priceRange-range">
-
+                        <div className="main__container__main_colunLeft_priceRange_conatiner">
+                            <input type="range" id="volume" name="volume" min="0" max="11" />
                         </div>
                     </div>
 
@@ -118,6 +152,7 @@ export const Main = () => {
                             <div className="main__container__main_colunRight_filter__plans-item">New Arrivals</div>
                             <div className="main__container__main_colunRight_filter__plans-item">Sale</div>
                         </div>
+                        {adminTrue && (<button className="main__container__main_colunRight_filter__plans-item" style={{ backgroundColor: 'green', color: '#fff', width: '120px', border: 'none', cursor: 'pointer' }}>Добавить блок</button>)}
                         <div className="main__container__main_colunRight_filter__filter">
                             <div className="main__container__main_colunRight_filter__filter-item" >Short by:</div>
                             <div className="main__container__main_colunRight_filter__filter-item" >Default sorting</div>
@@ -136,14 +171,33 @@ export const Main = () => {
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
-                        <Products title={"Barberton Daisy"} price={"$119.00"} />      */}
+                        <Products title={"Barberton Daisy"} price={"$119.00"} /> */}
                         {listPromo.map((elem) => (
                             <div className="main__container__main__columRight__container__product__item">
                                 <img className="main__container__main__columRight__container__product__item-image" src={elem.img}></img>
                                 <div className="main__container__main__columRight__container__product__item-title">{elem.title}</div>
                                 <div className="main__container__main__columRight__container__product__item-price">{elem.price}</div>
+                                {adminTrue && (<div className="main__container__main__columRight__container__product__item-delete" style={{ cursor: 'pointer' }}>
+                                    <div className="main__container__main__columRight__container__product__item-delete-krest"></div>
+                                </div>)}
                             </div>
                         ))}
+                        <CreateProduct
+                            setProducts={setProducts}
+                            onCloseModal={onCloseModal}
+                            isModalOpen={isModalOpen}
+                        />{isEdit.status && (
+                            <EditProduct
+                                setProducts={setProducts}
+                                onCloseModal={setIsEdit}
+                                isModalOpen={isEdit.status}
+                                initialValues={
+                                    products.filter((product) => product.id === isEdit.id)[0]
+                                }
+                                setIsEdit={setIsEdit}
+                                id={isEdit.id}
+                            />
+                        )}
                     </div>
 
                 </div>

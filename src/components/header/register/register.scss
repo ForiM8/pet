@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    z-index: 10;
 
     .modal__contentLogin__header {
         width: 157px;
@@ -218,5 +219,6 @@
 }
 
 .modal__contentRegister.active {
+    z-index: 10;
     transform: scale(1);
 }

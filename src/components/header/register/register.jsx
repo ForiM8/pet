@@ -31,7 +31,7 @@ export const Register = () => {
             console.log(isAuth)
             Registerr.push(data)
             console.log(Registerr)
-            console.log( Registerr[Registerr.length - 1].email)
+            console.log(Registerr[Registerr.length - 1].email)
             setModalActiveRegister(prev => !prev)
             setModalActive(prev => !prev)
         } else {
@@ -53,6 +53,7 @@ export const Register = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="modal__contentLogin__inputBox-smallText">Enter your email and password to register.</div>
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={'User'}
                         name={"user"}
                         label={"Username"}
@@ -62,6 +63,7 @@ export const Register = () => {
                         classNameLabel={'modal__contentLogin__inputBox__label'}
                     />
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={"email"}
                         name={"email"}
                         label={"Enter your email address"}
@@ -71,6 +73,7 @@ export const Register = () => {
                         classNameLabel={'modal__contentLogin__inputBox__label'}
                     />
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={'password'}
                         name={"password"}
                         label={"Password"}
@@ -80,6 +83,7 @@ export const Register = () => {
                         classNameLabel={'modal__contentLogin__inputBox__label'}
                     />
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={'password'}
                         name={"confirmPassword"}
                         label={"Confirm Password"}

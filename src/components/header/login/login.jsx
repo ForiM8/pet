@@ -4,10 +4,11 @@ import { Modal } from "../../modal/modal"
 import "./login.scss"
 import { useModalRegister } from "../../context/modalContext/modalContext"
 import { useForm } from "react-hook-form"
-import { useAuth } from "../../context/authContext/authContext"
+import { Admin, useAuth } from "../../context/authContext/authContext"
 import { ModalRegister } from "../../modal/modalRegister"
 import { getAuth } from "../../request/request"
 import { Registerr } from "../register/register"
+import { useNavigate } from "react-router-dom"
 
 export var Name = ''
 
@@ -21,34 +22,43 @@ export const Login = () => {
         watch,
     } = useForm();
 
-    const { isAuth, setIsAuth } = useAuth()
+    const { setIsAuth, setAdminTrue } = useAuth()
 
     const onSubmit = (data) => {
-        
-            const emailExists = Registerr.some(prev => Registerr[Registerr.length - 1].email == data.email);
-            console.log(Registerr.email, data.email)
-            const passwordExists = Registerr.some(prev => Registerr[Registerr.length - 1].password === data.password)
+        const emailExists = Registerr.some(prev => Registerr[Registerr.length - 1].email == data.email);
+        const passwordExists = Registerr.some(prev => Registerr[Registerr.length - 1].password === data.password)
             if (watch("password")) {
-                if (emailExists) {
+                if (data.email === Admin.email) {
+                    if (data.password === Admin.password) {
+                        alert("О великий админ вернулся")
+                        setIsAuth(prev => !prev)
+                        setAdminTrue(prev => !prev)
+                        Name = Admin.password
+                        // getAuth().then(({ data }) => {
+                        //     localStorage.setItem("token", data.token);
+                        // })
+                        setModalActive(prev => !prev)
+                    }
+                } else if (emailExists) {
                     if (passwordExists) {
                         setIsAuth(prev => !prev)
-                        console.log(Registerr)
                         Name = Registerr[Registerr.length - 1].user
-                        console.log(Name)
                         alert("вы успешно вошли")
+                        localStorage.setItem("token", data.token);
+                        // getAuth().then(({ data }) => {
+                        //     localStorage.setItem("token", data.token);
+                        // })
                         setModalActive(prev => !prev)
                     } else {
                         alert('не правильный пароль')
                     }
                 } else {
                     alert("такого пользователя нет")
-                    console.log(Registerr)
                 }
 
             } else {
                 alert("вы не ввели пароль")
             }
-    
     };
 
     return (
@@ -65,6 +75,7 @@ export const Login = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="modal__contentLogin__inputBox-smallText">Enter your username and password to login.</div>
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={'email'}
                         name={"email"}
                         label={"Email"}
@@ -74,6 +85,7 @@ export const Login = () => {
                         classNameLabel={'modal__contentLogin__inputBox__label'}
                     />
                     <Input
+                        classNameWrapper={'wrapper'}
                         input_type={'password'}
                         name={"password"}
                         label={"Password"}

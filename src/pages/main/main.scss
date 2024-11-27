@@ -285,7 +285,9 @@
             }
         }
 
+       
         .main__container__main__columRight__container__product{
+           
             width: 840px;
             height: 1190px;
             //background-color: aliceblue;
@@ -295,6 +297,7 @@
             column-gap: 33px;
             
             .main__container__main__columRight__container__product__item{
+                position: relative;
                 width: 258px;
                 height: 350px;
                 //background-color: #915d5d;
@@ -321,6 +324,24 @@
                     line-height: 16px;
                     font-weight: 700;
                     color: #46A358;
+                }
+                .main__container__main__columRight__container__product__item-delete{
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    top: 0px;
+                    right: 0px;
+                    background-color: red;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &-krest{
+                        background-image: url(../../../public/png/admin/krest.png);
+                        width: 25px;
+                        height: 25px;
+                        background-size: 25px 25px;
+                    }
                 }
             }
         }
@@ -617,4 +638,21 @@
     font-family: "Care pro";
     font-size: 45px;
     font-weight: 700;
+}
+
+// main__container__welcome_text-Sredne
+
+.container-auth-page{
+ width: 100px;
+ height: 100px;
+ background-color: #727272;
+ 
+ &__block{
+    width: 50px;
+    height: 50px;
+    background-color: #46A358;
+    &__title{
+        color:red
+    }
+ }
 }
