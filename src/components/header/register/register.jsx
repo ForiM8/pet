@@ -6,6 +6,7 @@ import { useModalRegister } from "../../context/modalContext/modalContext"
 import { useForm } from "react-hook-form"
 import { useAuth } from "../../context/authContext/authContext"
 import { ModalRegister } from "../../modal/modalRegister"
+import { getAuth } from "../../request/request"
 
 export const Registerr = []
 
@@ -30,7 +31,8 @@ export const Register = () => {
             //console.log(data)
             console.log(isAuth)
             Registerr.push(data)
-            console.log(Registerr)
+            console.log(data)
+            
             console.log(Registerr[Registerr.length - 1].email)
             setModalActiveRegister(prev => !prev)
             setModalActive(prev => !prev)

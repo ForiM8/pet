@@ -10,7 +10,6 @@ import { getAuth } from "../../request/request"
 import { Registerr } from "../register/register"
 import { useNavigate } from "react-router-dom"
 
-export var Name = ''
 
 export const Login = () => {
 
@@ -24,41 +23,47 @@ export const Login = () => {
 
     const { setIsAuth, setAdminTrue } = useAuth()
 
+
     const onSubmit = (data) => {
         const emailExists = Registerr.some(prev => Registerr[Registerr.length - 1].email == data.email);
         const passwordExists = Registerr.some(prev => Registerr[Registerr.length - 1].password === data.password)
-            if (watch("password")) {
-                if (data.email === Admin.email) {
-                    if (data.password === Admin.password) {
-                        alert("О великий админ вернулся")
-                        setIsAuth(prev => !prev)
-                        setAdminTrue(prev => !prev)
-                        Name = Admin.password
-                        // getAuth().then(({ data }) => {
-                        //     localStorage.setItem("token", data.token);
-                        // })
-                        setModalActive(prev => !prev)
-                    }
-                } else if (emailExists) {
-                    if (passwordExists) {
-                        setIsAuth(prev => !prev)
-                        Name = Registerr[Registerr.length - 1].user
-                        alert("вы успешно вошли")
-                        localStorage.setItem("token", data.token);
-                        // getAuth().then(({ data }) => {
-                        //     localStorage.setItem("token", data.token);
-                        // })
-                        setModalActive(prev => !prev)
-                    } else {
-                        alert('не правильный пароль')
-                    }
-                } else {
-                    alert("такого пользователя нет")
+        if (watch("password")) {
+            if (data.email === Admin.email) {
+                if (data.password === Admin.password) {
+                    alert("О великий админ вернулся")
+                    setIsAuth(prev => !prev)
+                    setAdminTrue(prev => !prev)
+                    console.log(Admin.password)
+                    console.log('data'. data)
+                    getAuth().then(({ data }) => {
+                        localStorage.setItem("token", data.token)
+                        localStorage.setItem("user", Admin.password);
+                        localStorage.setItem("email", Admin.email);
+                    })
+                    setModalActive(prev => !prev)
                 }
-
+            } else if (emailExists) {
+                if (passwordExists) {
+                    setIsAuth(prev => !prev)
+                    
+                    alert("вы успешно вошли")
+                    localStorage.setItem("token", data.token);
+                    getAuth().then(({ data }) => {
+                        localStorage.setItem("token", data.token)
+                        localStorage.setItem("user", Registerr[Registerr.length - 1].user);
+                        localStorage.setItem("email", Registerr[Registerr.length - 1].email);
+                    })
+                    setModalActive(prev => !prev)
+                } else {
+                    alert('не правильный пароль')
+                }
             } else {
-                alert("вы не ввели пароль")
+                alert("такого пользователя нет")
             }
+
+        } else {
+            alert("вы не ввели пароль")
+        }
     };
 
     return (

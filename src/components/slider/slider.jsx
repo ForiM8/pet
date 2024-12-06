@@ -44,7 +44,7 @@ export const Slider = ({
                     <div className="main__cards__container-slider__container-slider__track__slide" key={elem.id}>
                         <img src={elem.img} className="main__cards__container-slider__container-slider__track__slide-image" />
                         <div className="main__cards__container-slider__container-slider__track__slide-name">{elem.title}</div>
-                        <div className="main__cards__container-slider__container-slider__track__slide-price">{elem.price}</div>
+                        <div className="main__cards__container-slider__container-slider__track__slide-price">${elem.price}</div>
                     </div>
                 ))}
             </div>

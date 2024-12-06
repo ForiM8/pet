@@ -28,7 +28,7 @@ export const CardProduct = ({
         <div to='/cards' onClick={moreInfo} style={{textDecoration: 'none', color:'#3D3D3D'}} className="main__container__main__columRight__container__product__item">
             <Link to='./cards'> <img className="main__container__main__columRight__container__product__item-image" src={elemImg}></img></Link>
             <div className="main__container__main__columRight__container__product__item-title">{elemTitle}</div>
-            <div className="main__container__main__columRight__container__product__item-price">{elemPrice}</div>
+            <div className="main__container__main__columRight__container__product__item-price">${elemPrice}</div>
             {adminTrue && 
             (<button onClick={editProduct} className="main__container__main__columRight__container__product__item-edit" style={{ cursor: 'pointer' }}>
                 <div className="main__container__main__columRight__container__product__item-edit-pencil"></div>

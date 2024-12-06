@@ -5,35 +5,40 @@ import { useAuth } from '../../components/context/authContext/authContext';
 import { Slider } from '../../components/slider/slider';
 
 export const Cards = () => {
-    const { nextInfo, setBuyCount,setBuyMassiv,buyMassiv } = useAuth();
+    const { nextInfo, setBuyCount, buyMassiv, setBuyMassiv } = useAuth();
     const [count, setCount] = useState(1);
     const [listPromo, setListPromo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    
+
     const [error, setError] = useState({
         status: false,
         message: "",
     });
 
-    
+    const [buyBox, setBuyBox] = useState({
+        id: null,
+        count: null,
+    })
 
     const id = nextInfo;
-    
-    function clikPlus(){
+
+    function clikPlus() {
         setCount(prev => prev + 1)
     }
-    function clikMinus(){
-        if(count > 0){ 
+    function clikMinus() {
+        if (count > 0) {
             setCount(prev => prev - 1)
         }
     }
-    function buy(){
+    function buy() {
         setBuyCount(prev => prev + count)
-        setBuyMassiv({
-            id: id,
-            count: count,
-        })
-        
+        const existingItem = buyMassiv.find(item => item.id === id);
+        if (existingItem) {
+            setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count + count } : item))
+        } else {
+            setBuyMassiv(prev => [...prev, { id: id, count: count }])
+        }
+
     }
     console.log(buyMassiv)
     useEffect(() => {
@@ -55,7 +60,7 @@ export const Cards = () => {
         return <div className="loading__container">{error.message}</div>;
     }
 
-   
+
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -79,7 +84,7 @@ export const Cards = () => {
                             <div className='main__cards__container-short__box-text__header'>
                                 <div className="main__cards__container-short__box-text__header__text">
                                     <h1 className="main__cards__container-short__box-text__header__text-head">{elem.title}</h1>
-                                    <p className="main__cards__container-short__box-text__header__text-price">{elem.price}</p>
+                                    <p className="main__cards__container-short__box-text__header__text-price">${elem.price}</p>
                                 </div>
                                 <div className="main__cards__container-short__box-text__header__stars">
                                     <div className="main__cards__container-short__box-text__header__stars__stars-active"></div>
@@ -109,10 +114,10 @@ export const Cards = () => {
 
                                 <div className="main__cards__container-short__box-text__description__buy">
                                     <div className="main__cards__container-short__box-text__description__buy__buy-block">
-                                        <div  className="main__cards__container-short__box-text__description__buy__buy-block__count-container">
+                                        <div className="main__cards__container-short__box-text__description__buy__buy-block__count-container">
                                             <button onClick={clikMinus} className="main__cards__container-short__box-text__description__buy__buy-block__count-container-button">-</button>
                                             <div className="main__cards__container-short__box-text__description__buy__buy-block__count-container-count">{count}</div>
-                                            <button onClick={clikPlus}  className="main__cards__container-short__box-text__description__buy__buy-block__count-container-button">+</button>
+                                            <button onClick={clikPlus} className="main__cards__container-short__box-text__description__buy__buy-block__count-container-button">+</button>
                                         </div>
                                         <div className="main__cards__container-short__box-text__description__buy__buy-block__button-container">
                                             <button className="main__cards__container-short__box-text__description__buy__buy-block__button-container__button-buy">BUY NOW</button>
@@ -176,7 +181,7 @@ export const Cards = () => {
                         </div>
 
 
-                        <Slider/>
+                        <Slider />
 
                     </div>
                 </div>

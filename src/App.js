@@ -1,36 +1,30 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./pages/header/header";
-import { Main } from "./pages/main/main";
-import { Footer } from "./pages/footer/footer";
-import { ModallRegisterContext } from "./components/context/modalContext/modalContext";
-import { AuthhContext } from "./components/context/authContext/authContext";
-import { Profile } from "./pages/profile/profile";
-import { Cards } from "./pages/cards/cards";
-import { Basket } from "./pages/basket/basket";
+import { RouterProvider } from "react-router-dom";
+import { Admin, useAuth } from "./components/context/authContext/authContext";
+import { getRoutes } from "./components/navigation/routes";
+import { useEffect } from "react";
 
 
 function App() {
+  const { isAuth, setIsAuth,setAdminTrue } = useAuth();
+  const routes = getRoutes(isAuth);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    const email = localStorage.getItem('email');
+    if (token) {
+      setIsAuth(true);
+      if((user === Admin.password)&&(email === Admin.email)){
+        setAdminTrue(true)
+        setIsAuth(true);
+      }
+    }
+  }, [setIsAuth]);
+
   return (
-    <div>
-      <BrowserRouter>
 
-        <AuthhContext>
-          <ModallRegisterContext>
-            <Header />
+    <RouterProvider router={routes} />
 
-            <Routes>
-              <Route path={'/'} element={<Main />} />
-              <Route path={'/profile'} element={<Profile />} />
-              <Route path={'/cards'} element={<Cards />} />
-              <Route path={'/basket'} element={<Basket />} />
-            </Routes>
-
-            <Footer />
-          </ModallRegisterContext>
-        </AuthhContext>
-
-      </BrowserRouter>
-    </div>
   );
 }
 

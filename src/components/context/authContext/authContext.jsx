@@ -14,10 +14,7 @@ export const AuthhContext = ({children}) =>{
     const [adminTrue, setAdminTrue] = useState(false)
     const [nextInfo, setNextInfo] = useState(1) 
     const [buyCount, setBuyCount] = useState(0)
-    const[buyMassiv, setBuyMassiv] = useState({
-        id: null,
-        count: null,
-    })
+    const [buyMassiv, setBuyMassiv] = useState([])
     return(
         <AuthContext.Provider value={ {isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount,buyMassiv, setBuyMassiv} }>
             {children}

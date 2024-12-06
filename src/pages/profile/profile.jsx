@@ -21,8 +21,9 @@ export const Profile = () => {
 
     const logout = () => {
         navigate("/");
-    
+        localStorage.removeItem("user");
         localStorage.removeItem("token");
+        localStorage.removeItem("email");
         setIsAuth(false);
         setAdminTrue(false)
       };

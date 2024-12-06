@@ -21,20 +21,19 @@ export const Main = () => {
 
     const [isEdit, setIsEdit] = useState({ status: false, id: null });
 
-    const [isLoading, setIsLoadingPromo] = useState(false);
+   
     const [listPromo, setListPromo] = useState([]);
-    const [error, setError] = useState({
-        status: false,
-        message: "",
-    });
+    
 
     const addProduct = () => {
         setIsModalOpen(true);
     };
-
-    //   const { isAuth } = useAuth();
-    //   console.log(isAuth)
-
+    
+    const [isLoading, setIsLoadingPromo] = useState(false);
+    const [error, setError] = useState({
+        status: false,
+        message: "",
+    });
      useEffect(() => {
          setIsLoadingPromo(true);
          getProducts()
