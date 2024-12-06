@@ -10,15 +10,17 @@ import { useAuth } from "../../components/context/authContext/authContext"
 import { getProducts, removeOneProduct } from "../../components/request/request-product"
 import { CreateProduct } from "./create-product"
 import { EditProduct } from "./edit-product"
+import { CardProduct } from "../../components/card/card-product"
 
 export const Main = () => {
 
-    const { adminTrue } = useAuth()
+    const { adminTrue, setNextInfo } = useAuth()
 
     const [products, setProducts] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [isEdit, setIsEdit] = useState({ status: false, id: null });
+
     const [isLoading, setIsLoadingPromo] = useState(false);
     const [listPromo, setListPromo] = useState([]);
     const [error, setError] = useState({
@@ -26,51 +28,49 @@ export const Main = () => {
         message: "",
     });
 
-    //   const { isAuth } = useAuth();
-    //   console.log(isAuth)
-    useEffect(() => {
-        setIsLoadingPromo(true);
-        getPost()
-            .then((data) => {
-                if (data.data && data.status === 200) {
-                    setListPromo(data.data);
-                }
-            })
-            .catch((error) =>
-                setError({ status: true, message: Error(error).message })
-            )
-            .finally(() => setIsLoadingPromo(false));
-    }, []);
-
-    if (isLoading) {
-        return <div className="loading__container">loading...</div>;
-    }
-    if (error.status) {
-        return <div className="loading__container">{error.message}</div>;
-    }
-
-
-
-
     const addProduct = () => {
         setIsModalOpen(true);
     };
 
+    //   const { isAuth } = useAuth();
+    //   console.log(isAuth)
 
+     useEffect(() => {
+         setIsLoadingPromo(true);
+         getProducts()
+             .then(({ data }) => {
+                 setProducts(data.map((elem) => ({ ...elem})));
+             })
+             .catch((error) =>
+                 setError({ status: true, message: Error(error).message })
+             )
+             .finally(() => setIsLoadingPromo(false));
+     }, []);
 
-    const removeProduct = (id) => {
-        removeOneProduct(id)
-            .then(({ }) => {
-                setProducts((prevValue) =>
-                    prevValue.filter((product) => product.id !== id)
-                );
-            })
-            .catch(() => alert("Ошибка"));
-    };
+     if (isLoading) {
+         return <div className="loading__container">loading...</div>;
+     }
+     if (error.status) {
+         return <div className="loading__container">{error.message}</div>;
+     }
 
-    const onCloseModal = () => {
-        setIsModalOpen(false);
-    };
+     const moreInfo = (id) => {
+        setNextInfo(prev => prev = id)
+     }
+
+     const removeProduct = (id) => {
+         removeOneProduct(id)
+             .then(({ }) => {
+                 setProducts((prevValue) =>
+                     prevValue.filter((product) => product.id !== id)
+                 );
+             })
+             .catch(() => alert("Ошибка"));
+     };
+
+     const onCloseModal = () => {
+         setIsModalOpen(false);
+     };
 
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -116,12 +116,7 @@ export const Main = () => {
                         </div>
                     </div>
 
-                    <div className="main__container__main_colunLeft_priceRange">
-                        Price Range
-                        <div className="main__container__main_colunLeft_priceRange_conatiner">
-                            <input type="range" id="volume" name="volume" min="0" max="11" />
-                        </div>
-                    </div>
+                    
 
                     <div className="main__container__main_colunLeft_size">
                         Size
@@ -152,7 +147,7 @@ export const Main = () => {
                             <div className="main__container__main_colunRight_filter__plans-item">New Arrivals</div>
                             <div className="main__container__main_colunRight_filter__plans-item">Sale</div>
                         </div>
-                        {adminTrue && (<button className="main__container__main_colunRight_filter__plans-item" style={{ backgroundColor: 'green', color: '#fff', width: '120px', border: 'none', cursor: 'pointer' }}>Добавить блок</button>)}
+                        {adminTrue && (<button onClick={addProduct} className="main__container__main_colunRight_filter__plans-item" style={{ backgroundColor: 'green', color: '#fff', width: '120px', border: 'none', cursor: 'pointer' }}>Добавить блок</button>)}
                         <div className="main__container__main_colunRight_filter__filter">
                             <div className="main__container__main_colunRight_filter__filter-item" >Short by:</div>
                             <div className="main__container__main_colunRight_filter__filter-item" >Default sorting</div>
@@ -163,7 +158,7 @@ export const Main = () => {
                     </div>
 
                     <div className="main__container__main__columRight__container__product">
-                        {/* <Products title={"Barberton Daisy"} price={"$119.00"} />
+                         {/* <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
@@ -171,16 +166,18 @@ export const Main = () => {
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
                         <Products title={"Barberton Daisy"} price={"$119.00"} />
-                        <Products title={"Barberton Daisy"} price={"$119.00"} /> */}
-                        {listPromo.map((elem) => (
-                            <div className="main__container__main__columRight__container__product__item">
-                                <img className="main__container__main__columRight__container__product__item-image" src={elem.img}></img>
-                                <div className="main__container__main__columRight__container__product__item-title">{elem.title}</div>
-                                <div className="main__container__main__columRight__container__product__item-price">{elem.price}</div>
-                                {adminTrue && (<div className="main__container__main__columRight__container__product__item-delete" style={{ cursor: 'pointer' }}>
-                                    <div className="main__container__main__columRight__container__product__item-delete-krest"></div>
-                                </div>)}
-                            </div>
+                        <Products title={"Barberton Daisy"} price={"$119.00"} />  */}
+                        {products.map((product) => (
+                            <CardProduct
+                                {...product}
+                                key={product.id}
+                                elemImg={product.img}
+                                elemTitle={product.title}
+                                elemPrice={product.price}
+                                onRemove={removeProduct}
+                                onEdit={setIsEdit}
+                                onInfo={moreInfo}
+                            />
                         ))}
                         <CreateProduct
                             setProducts={setProducts}
@@ -197,7 +194,7 @@ export const Main = () => {
                                 setIsEdit={setIsEdit}
                                 id={isEdit.id}
                             />
-                        )}
+                        )} 
                     </div>
 
                 </div>

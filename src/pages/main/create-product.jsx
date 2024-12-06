@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
-import { TextInput } from "../../components/inputs/text-input";
 import ReactModal from "react-modal";
-
 import { useState } from "react";
 import { Input } from "../../components/input/input";
 import { addedProducts } from "../../components/request/request-product";
+import "./create-product.scss"
 
 const customStyles = {
   content: {
@@ -75,22 +74,24 @@ export const CreateProduct = (props) => {
             ) : (
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
-                  classNameLablel={"modal__main-label"}
-                  register={register}
+                  input_type={'text'}
                   name={"title"}
-                  label={"Наименование"}
-                  validate={{ required: true }}
-                  errors={errors}
+                  classNameWrapper={'wrapper__product'}
+                  register={register}
+                  classNameInput={'wrapper__product-input'}
+                  classNameLabel={'wrapper__product-label'}
+                  label={'Наименование'}
                 />
                 <Input
-                  type="numzz"
-                  register={register}
-                  errors={errors}
+                  input_type={'text'}
                   name={"price"}
-                  label={"Цена"}
-                  validate={{ required: true }}
+                  classNameWrapper={'wrapper__product'}
+                  register={register}
+                  classNameInput={'wrapper__product-input'}
+                  classNameLabel={'wrapper__product-label'}
+                  label={'Цена'}
                 />
-                <button>Добавить продукт</button>
+                <button className="modal__main-button">Добавить продукт</button>
               </form>
             )}
           </div>

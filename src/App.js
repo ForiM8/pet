@@ -5,6 +5,8 @@ import { Footer } from "./pages/footer/footer";
 import { ModallRegisterContext } from "./components/context/modalContext/modalContext";
 import { AuthhContext } from "./components/context/authContext/authContext";
 import { Profile } from "./pages/profile/profile";
+import { Cards } from "./pages/cards/cards";
+import { Basket } from "./pages/basket/basket";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
             <Routes>
               <Route path={'/'} element={<Main />} />
               <Route path={'/profile'} element={<Profile />} />
+              <Route path={'/cards'} element={<Cards />} />
+              <Route path={'/basket'} element={<Basket />} />
             </Routes>
 
             <Footer />

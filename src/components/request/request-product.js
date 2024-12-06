@@ -8,6 +8,10 @@ export const getProducts = () => {
   return baseURL("/products");
 };
 
+export const getProduct = (id) => {
+  return baseURL(`/products/${id}`);
+};
+
 export const removeOneProduct = (id) => {
   return baseURL.delete(`/products/${id}`);
 };

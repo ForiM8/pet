@@ -1,0 +1,369 @@
+@font-face {
+    font-family: "Care pro Medium";
+    src: url("../../../public/fonts/carePro/TypeMates/Cera-Pro-Medium-Demo.otf");
+}
+
+.main__basket {
+    width: 100%;
+    max-width: 1200px;
+    height: 984px;
+    //background-color: aquamarine;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+
+    &-routes {
+        font-family: 'Care pro';
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 51px;
+        color: rgba(61, 61, 61, 1);
+
+        &-span {
+            font-family: Care pro;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(61, 61, 61, 1);
+        }
+    }
+
+    &__container {
+        width: 100%;
+        min-height: 381px;
+        height: auto;
+        //background-color: aqua;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 87px;
+
+        &__left {
+            width: 782px;
+            min-height: 268px;
+            height: auto;
+           // background-color: antiquewhite;
+
+            &__header {
+                display: flex;
+                width: 100%;
+                height: 27px;
+                border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+                margin-bottom: 11px;
+
+                &-text {
+                    font-family: "Care pro Medium";
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(61, 61, 61, 1);
+                }
+            }
+
+            &__product {
+                width: 100%;
+                height: 70px;
+                background-color: #FBFBFB;
+                display: grid;
+                align-items: center;
+                grid-template-columns: [start] 84px [line2] 226px [line3] 146px [line4] 162px [line5] 111px [line6] 50px[end];
+                margin-bottom: 10px;
+
+                &-img {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                &__block-head {
+                    font-family: Care pro Medium;
+                    font-size: 16px;
+                    font-weight: 200;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    margin-bottom: 6px;
+                }
+
+                &__block-sku {
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #727272;
+
+                    .span {
+                        color: #A5A5A5;
+                    }
+                }
+
+                &-price {
+                    font-family: Care pro Medium;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(114, 114, 114, 1);
+                }
+
+                &__quantity {
+                    width: 81px;
+                    height: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &-button {
+                        width: 21.71px;
+                        height: 25px;
+                        border-radius: 29px;
+                        background: linear-gradient(180deg, #46A358 0%, rgba(70, 163, 88, 0.8) 100%);
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+
+                &-total {
+                    font-family: Care pro Bold;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #46A358;
+                }
+
+                &-del {
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                    background: none;
+                    background-image: url('../../../public/svg/basket/Delete.svg');
+                    background-position: center;
+                    border: none;
+                }
+            }
+
+            &__product:last-child {
+                margin-bottom: 0px;
+            }
+        }
+
+        &__right {
+            width: 332px;
+            height: 381px;
+            //background-color: antiquewhite;
+
+            &__header {
+                display: flex;
+                width: 100%;
+                height: 27px;
+                border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+                margin-bottom: 11px;
+
+                &-text {
+                    font-family: "Care pro Bold";
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #3D3D3D;
+                }
+            }
+
+            &__input {
+                width: 332px;
+                height: 64px;
+                margin-bottom: 30px;
+
+                &__head {
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(61, 61, 61, 1);
+                    margin-bottom: 8px;
+                }
+
+                &__box {
+                    width: 100%;
+                    height: 40px;
+                    display: flex;
+                    //background-color: #3D3D3D;
+                    margin-bottom: 30px;
+
+                    &-input {
+                        width: 230px;
+                        border: 1px solid rgba(70, 163, 88, 1);
+                        border-radius: 3px 0px 0px 3px;
+                        padding-left: 9px;
+                        box-sizing: border-box;
+                    }
+
+                    &-button {
+                        width: 102px;
+                        height: 100%;
+                        border: none;
+                        background-color: #46A358;
+                        color: #fff;
+                        font-family: Care pro Bold;
+                        font-size: 15px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        width: 102px;
+                        border-radius: 0px 3px 3px 0px;
+
+
+                    }
+                }
+            }
+
+            &__text {
+                width: 100%;
+                height: auto;
+                margin-bottom: 26px;
+
+                &__box {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+
+                    &-left {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #3D3D3D;
+                    }
+
+                    &-right {
+                        font-family: Care pro Medium;
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                }
+
+                &__box:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+
+            &__button {
+                width: 100%;
+                height: 115px;
+
+                &__header {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 29px;
+
+                    &-total {
+                        font-family: Care pro Bold;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-count {
+                        font-family: Care pro Bold;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #46A358;
+                    }
+
+
+                }
+
+                &-buttonGreen {
+                    width: 100%;
+                    height: 40px;
+                    background-color: #46A358;
+                    border: none;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-family: Care pro Bold;
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    cursor: pointer;
+                }
+
+                &-buttonWhite {
+                    width: 100%;
+                    height: 40px;
+                    background-color: #ffffff;
+                    border: none;
+                    border-radius: 3px;
+                    color: #46A358;
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+
+    &__container-slider {
+        width: 100%;
+        height: 449px;
+       // background-color: aqua;
+
+        &__header {
+            width: 100%;
+            height: 28px;
+            border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+            margin-bottom: 44px;
+
+            &-head {
+                font-family: Care pro Bold;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #46A358;
+            }
+        }
+    }
+}

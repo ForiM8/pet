@@ -10,10 +10,16 @@ export const useAuth = () => {
 
 export const AuthhContext = ({children}) =>{
 
-    const [isAuth, setIsAuth] = useState(true)
-    const [adminTrue, setAdminTrue] = useState(true) 
+    const [isAuth, setIsAuth] = useState(false)
+    const [adminTrue, setAdminTrue] = useState(false)
+    const [nextInfo, setNextInfo] = useState(1) 
+    const [buyCount, setBuyCount] = useState(0)
+    const[buyMassiv, setBuyMassiv] = useState({
+        id: null,
+        count: null,
+    })
     return(
-        <AuthContext.Provider value={ {isAuth, setIsAuth,adminTrue, setAdminTrue} }>
+        <AuthContext.Provider value={ {isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount,buyMassiv, setBuyMassiv} }>
             {children}
         </AuthContext.Provider>
     )

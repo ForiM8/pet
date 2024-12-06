@@ -1,0 +1,44 @@
+.wrapper__product {
+    margin-top: 10px;
+    width: 80%;
+    height: 65px;
+    position: relative;
+    margin-left: 24px;
+
+    &-label {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-family: Care pro;
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 15px;
+        color: #3D3D3D;
+    }
+
+    &-input {
+        width: 99%;
+        height: 40px;
+        position: absolute;
+        bottom: 0px;
+        border-radius: 3px;
+        border: 1px solid #EAEAEA;
+        background: none;
+        padding-left: 15px;
+    }
+}
+
+.modal__main-button {
+    margin-top: 12px;
+    margin-left: 24px;
+    width: 187px;
+    height: 40px;
+    background-color: rgb(126, 223, 134);
+    border: none;
+    font-family: Care pro;
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 15px;
+    color: #3D3D3D;
+    border-radius: 7px;
+}

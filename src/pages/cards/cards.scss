@@ -1,0 +1,623 @@
+@font-face {
+    font-family: "Care pro Bold";
+    src: url("../../../public/fonts/carePro/TypeMates/Cera-Pro-Bold-Demo.otf");
+}
+
+.main__cards {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    //background-color: aqua;
+    margin-top: 36px;
+
+    &-routes {
+        font-family: Care pro;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 43px;
+        color: rgba(61, 61, 61, 1);
+
+        &-span {
+            font-family: Care pro;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 16px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(61, 61, 61, 1);
+        }
+    }
+
+    &__container-short {
+        width: 100%;
+        height: 448px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 92px;
+        //background-color: black;
+
+        &__box-image {
+            width: 574px;
+            height: 100%;
+            //background-color: aquamarine;
+            display: flex;
+            justify-content: space-between;
+
+            &__left {
+                height: 100%;
+                width: 448px;
+                display: flex;
+                flex-direction: column;
+
+
+                &-img {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: auto;
+                    background-color: #FBFBFB;
+                }
+
+                &-img:last-child {
+                    margin-bottom: 0px;
+                }
+
+                &-img-active {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: auto;
+                    background-color: #FBFBFB;
+                    border: 2px solid #46A358;
+                }
+            }
+
+            &__right {
+                width: 444px;
+                height: 444px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #FBFBFB;
+
+                &-image {
+                    width: 404px;
+                    height: 404px;
+                }
+            }
+        }
+
+        &__box-text {
+            width: 574px;
+            height: 100%;
+            //background-color: aquamarine;
+
+            &__header {
+                width: 100%;
+                height: 66px;
+                border-bottom: 1px solid rgba(70, 163, 88, 0.5);
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+
+                &__text {
+
+
+                    &-head {
+                        font-family: "Care pro Bold";
+                        font-size: 28px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        margin-bottom: 21px;
+                    }
+
+                    &-price {
+                        font-family: "Care pro Bold";
+                        font-size: 22px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #46A358;
+                    }
+                }
+
+                &__stars {
+                    height: 53px;
+                    display: flex;
+                    align-items: end;
+
+                    &__stars-active {
+                        margin-right: 3px;
+                        width: 15px;
+                        height: 15px;
+                        background-image: url('../../../public/png/cards/stars/StarActive.png');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+
+
+                    &__stars-passive {
+                        width: 15px;
+                        height: 15px;
+                        background-image: url('../../../public/png/cards/stars/Star.png');
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        margin-right: 11px;
+                    }
+
+
+
+                    &__stars-text {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+                }
+            }
+
+            &__description {
+                width: 100%;
+                height: auto;
+                max-height: 92px;
+
+                &__short-header {
+                    margin-bottom: 10px;
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(61, 61, 61, 1);
+                }
+
+                &__short-text {
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(114, 114, 114, 1);
+                }
+
+                &__short {
+                    margin-bottom: 24px;
+                }
+
+                &__size {
+                    width: auto;
+                    height: auto;
+                    max-height: 55px;
+
+                    &-header {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        margin-bottom: 11px;
+                    }
+
+                    &__button-container {
+                        display: flex;
+                        margin-bottom: 23px;
+
+                        &__botton {
+                            width: 28px;
+                            height: 28px;
+                            border-radius: 50%;
+                            border: 1px solid #EAEAEA;
+                            background-color: #fff;
+                            margin-right: 10px;
+
+                            &-active {
+                                width: 28px;
+                                height: 28px;
+                                border-radius: 50%;
+                                border: 1px solid rgba(70, 163, 88, 1);
+                                color: #46A358;
+                                background-color: white;
+                                margin-right: 10px;
+                            }
+                        }
+
+                        &__bottone:last-child {
+                            margin-right: 0px;
+                        }
+
+                    }
+                }
+
+                &__buy {
+                    height: auto;
+                    width: auto;
+                    display: flex;
+
+                    &__buy-block {
+                        height: auto;
+                        width: 100%;
+                        max-width: 465px;
+                        display: flex;
+                        justify-content: space-between;
+
+
+                        &__count-container {
+                            width: 119px;
+                            height: auto;
+                            display: flex;
+                            justify-content: space-between;
+                            //background-color: aqua;
+                            align-items: center;
+                            margin-bottom: 24px;
+
+                            &-button {
+                                width: 33px;
+                                height: 38px;
+                                background: linear-gradient(180deg, #46A358 0%, rgba(70, 163, 88, 0.8) 100%);
+                                cursor: pointer;
+                                font-size: 28px;
+                                font-weight: 400;
+                                line-height: 16px;
+                                text-align: center;
+                                border-radius: 29px;
+                                color: #fff;
+                                border: none;
+                            }
+
+                            &-count {
+                                font-family: Care pro;
+                                font-size: 20px;
+                                font-weight: 400;
+                                line-height: 10px;
+                                text-align: left;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                color: rgba(61, 61, 61, 1);
+                            }
+                        }
+
+                        &__button-container {
+                            width: 100%;
+                            max-width: 320px;
+                            height: auto;
+                            display: flex;
+                            justify-content: space-between;
+                            //background-color: aqua;
+
+                            &__button-buy {
+                                width: 130px;
+                                height: 40px;
+                                background-color: #46A358;
+                                border: none;
+                                text-align: center;
+                                font-family: Care pro;
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 20px;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                color: #fff;
+                                border-radius: 6px;
+                                cursor: pointer;
+                            }
+
+                            &__button-add {
+                                width: 130px;
+                                height: 40px;
+                                background-color: #fff;
+                                border: 1px solid #46A358;
+                                text-align: center;
+                                font-family: Care pro;
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 20px;
+                                text-underline-position: from-font;
+                                text-decoration-skip-ink: none;
+                                color: #46A358;
+                                padding-top: 11px;
+                                box-sizing: border-box;
+                                border-radius: 6px;
+                                cursor: pointer;
+                            }
+
+                            &__button-heart {
+                                width: 40px;
+                                height: 40px;
+                                background-color: #fff;
+                                border: 1px solid #46A358;
+                                text-align: center;
+                                font-family: Care pro;
+                                font-size: 14px;
+                                font-weight: 700;
+                                line-height: 20px;
+                                color: #46A358;
+                                padding-top: 11px;
+                                box-sizing: border-box;
+                                border-radius: 6px;
+                                cursor: pointer;
+                                background-image: url('../../../public/svg/cards/button/heart.svg');
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+                    }
+                }
+
+                &__text {
+                    //background-color: aqua;
+
+                    &-block__text {
+                        display: flex;
+                        width: auto;
+                        margin-bottom: 11px;
+
+                        &-h2 {
+                            font-family: Care pro;
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 16px;
+                            text-align: left;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: rgba(165, 165, 165, 1);
+                        }
+
+                        &-p {
+                            margin-left: 4px;
+                            font-family: Care pro;
+                            font-size: 15px;
+                            font-weight: 400;
+                            line-height: 16px;
+                            text-align: left;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: rgba(114, 114, 114, 1);
+                        }
+                    }
+
+                    &-block__text:last-child {
+                        margin-bottom: 18px;
+                    }
+
+                    &-block__share {
+                        display: flex;
+                        width: auto;
+                        align-items: center;
+
+                        &-h2 {
+                            font-family: Care pro;
+                            font-size: 15px;
+                            font-weight: 500;
+                            line-height: 16px;
+                            text-align: left;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: rgba(61, 61, 61, 1);
+                        }
+
+                        &-facebook {
+                            width: 7.5px;
+                            height: 15px;
+                            margin-left: 16px;
+                            margin-right: 20.5px;
+                            background-image: url('../../../public/svg/cards/messenger/Facebook.svg');
+                        }
+
+                        &-twitter {
+                            width: 15px;
+                            height: 12.19px;
+                            margin-right: 20px;
+                            background-image: url('../../../public/svg/cards/messenger/Twitter.svg');
+                        }
+
+                        &-in {
+                            width: 15px;
+                            height: 14.38px;
+                            margin-right: 16px;
+                            background-image: url('../../../public/svg/cards/messenger/Linkedin.svg');
+                        }
+
+                        &-messenger {
+                            padding-top: 2px;
+                            box-sizing: border-box;
+                            width: 18px;
+                            height: 18px;
+                            background-image: url('../../../public/svg/cards/messenger/Message.svg');
+                            background-position: bottom;
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    &__container-long {
+        width: 100%;
+        height: auto;
+        //background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 127px;
+
+        &__header {
+            width: 100%;
+            height: 28px;
+            border-bottom: 1px solid rgba(70, 163, 88, 0.5);
+            display: flex;
+            z-index: 0;
+            margin-bottom: 18px;
+
+            &-product {
+                height: 92%;
+                width: auto;
+                margin-right: 30px;
+                border-bottom: 3px solid #46A358;
+                z-index: 1;
+                font-family: Care pro Bold;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 16px;
+                color: #46A358;
+            }
+
+            &-reviews {
+                font-family: Care pro;
+                font-size: 17px;
+                font-weight: 400;
+                line-height: 16px;
+                color: #3D3D3D;
+            }
+        }
+
+        &__text {
+            font-family: Care pro;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #727272;
+        }
+
+        &__head {
+            font-family: Care pro;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 24px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: #3D3D3D;
+        }
+    }
+
+    &__container-slider {
+        height: 450px;
+        width: 100%;
+        //background-color: aquamarine;
+        margin-bottom: 67px;
+
+        &__header {
+            width: 100%;
+            height: 28px;
+            border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+            margin-bottom: 44px;
+
+            &-text {
+                font-family: Care pro;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: rgba(70, 163, 88, 1);
+            }
+        }
+
+        
+
+        &__container-slider{
+            width: 100%;
+            height: 304px;
+            margin: auto;
+            margin-top: 25px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+
+            &__button-left {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                border: none;
+                color: #46A358;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 10;
+                left: 10px;
+            }
+
+            &__button-right {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                border: none;
+                color: #46A358;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 10;
+                right: 10px;
+            }
+
+            &__track {
+                display: flex;
+                transition: transform 0.5s ease;
+                width: calc(219px * 5 + 26px * 4);
+
+                &__slide {
+                    width: 219px;
+                    height: 304px;
+                    margin-right: 26px;
+                    flex: none;
+
+                    &-image {
+                        width: 219px;
+                        height: 255px;
+                        margin-bottom: 12px;
+                    }
+
+                    &-name {
+                        font-family: 'Care pro';
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-price {
+                        font-family: 'Care pro';
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        color: rgba(70, 163, 88, 1);
+                    }
+                }&__slide:last-child {
+                    margin-right: 0px;
+                }
+            }
+        }
+
+
+
+    }
+
+}
+

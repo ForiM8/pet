@@ -109,7 +109,7 @@
 
     .main__container__main_colunLeft {
         width: 310px;
-        height: 1244px;
+        height: auto;
         background-color: #F5F5F580;
 
         .main__container__main_colunLeft_categories {
@@ -289,7 +289,8 @@
         .main__container__main__columRight__container__product{
            
             width: 840px;
-            height: 1190px;
+            height: auto;
+            min-height: 1190px;
             //background-color: aliceblue;
             margin-top: 31px;
             display: grid;
@@ -307,7 +308,7 @@
                     height: 300px;
                     background-color: #FBFBFB;
                     margin-bottom: 12px;
-                    background-image: url("../../../public/png/Koluchka.png");
+                    //background-image: url("../../../public/png/Koluchka.png");
                     background-repeat: no-repeat;
                     background-position: center;
                 }
@@ -338,6 +339,25 @@
 
                     &-krest{
                         background-image: url(../../../public/png/admin/krest.png);
+                        width: 25px;
+                        height: 25px;
+                        background-size: 25px 25px;
+                    }
+                }
+
+                .main__container__main__columRight__container__product__item-edit{
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    top: 0px;
+                    left: 0px;
+                    background-color: yellow;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &-pencil{
+                        background-image: url(../../../public/png/admin/pencil.png);
                         width: 25px;
                         height: 25px;
                         background-size: 25px 25px;
@@ -656,3 +676,31 @@
     }
  }
 }
+.modal__header {
+    width: 427px;
+    height: 72px;
+    //background-color: #c98888;
+
+    .madal__header-header {
+        width: 323px;
+        height: 28px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 28px;
+        margin-left: 24px;
+        //background-color: #d3875f;
+        margin-right: 16px;
+        font-family: "Nunito Sans", sans-serif;
+    }
+
+}
+.modal__main{
+    .modal__main-label{
+        margin-left: 24px;
+    }
+}
+.modal__main-label{
+    position: absolute;
+    margin-left: 24px;
+}
+

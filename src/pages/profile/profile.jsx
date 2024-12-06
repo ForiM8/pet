@@ -7,7 +7,7 @@ import { useAuth } from "../../components/context/authContext/authContext";
 import { useNavigate } from "react-router-dom";
 
 export const Profile = () => {
-    const {setIsAuth} = useAuth()
+    const {setIsAuth, setAdminTrue} = useAuth()
 
     const {
         register,
@@ -24,6 +24,7 @@ export const Profile = () => {
     
         localStorage.removeItem("token");
         setIsAuth(false);
+        setAdminTrue(false)
       };
 
     const onSubmit = (data) => {
