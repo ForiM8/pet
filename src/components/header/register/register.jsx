@@ -27,12 +27,10 @@ export const Register = () => {
 
     const onSubmit = (data) => {
         if (watch("password") === watch("confirmPassword")) {
-            //setIsAuth(prev => !prev)
-            //console.log(data)
+           
             console.log(isAuth)
             Registerr.push(data)
             console.log(data)
-            
             console.log(Registerr[Registerr.length - 1].email)
             setModalActiveRegister(prev => !prev)
             setModalActive(prev => !prev)

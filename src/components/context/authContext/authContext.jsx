@@ -15,8 +15,14 @@ export const AuthhContext = ({children}) =>{
     const [nextInfo, setNextInfo] = useState(1) 
     const [buyCount, setBuyCount] = useState(0)
     const [buyMassiv, setBuyMassiv] = useState([])
+    const [modalCount, setModalCount] = useState([])
+    const [Total, SetTotal] = useState(0)
+    const [userName, setUserName] = useState([])
+    const [profileInfo, setProfileInfo] = useState({})
+
+
     return(
-        <AuthContext.Provider value={ {isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount,buyMassiv, setBuyMassiv} }>
+        <AuthContext.Provider value={ {userName, setUserName,Total, SetTotal, isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount, profileInfo, setProfileInfo} }>
             {children}
         </AuthContext.Provider>
     )

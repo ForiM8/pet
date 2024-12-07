@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import { Categories } from "../../components/main/columLeft/categories/categories"
-import { Products } from "../../components/main/columRight/product"
 import { FindMore } from "../../components/main/findMore/findMore"
 import { OurBlock } from "../../components/main/ourBlock/ourBlock"
 import { PageNumber } from "../../components/main/pageNumber/pageNumber"
 import "./main.scss"
-import { getPost } from "../../components/request/request"
 import { useAuth } from "../../components/context/authContext/authContext"
 import { getProducts, removeOneProduct } from "../../components/request/request-product"
 import { CreateProduct } from "./create-product"
@@ -20,11 +18,7 @@ export const Main = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const [isEdit, setIsEdit] = useState({ status: false, id: null });
-
-   
-    const [listPromo, setListPromo] = useState([]);
     
-
     const addProduct = () => {
         setIsModalOpen(true);
     };

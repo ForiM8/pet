@@ -38,7 +38,7 @@ export const Slider = ({
     };
     return (
         <div className="main__cards__container-slider__container-slider">
-            <button className="main__cards__container-slider__container-slider__button-left" onClick={handlePrevClick}>◀</button>
+            <button className="main__cards__container-slider__container-slider__button-left" style={{zIndex:'2'}} onClick={handlePrevClick}>◀</button>
             <div className="main__cards__container-slider__container-slider__track" style={{ transform: `translateX(-${currentIndex * (245)}px)` }}>
                 {listsPromo.map((elem) => (
                     <div className="main__cards__container-slider__container-slider__track__slide" key={elem.id}>
@@ -48,7 +48,7 @@ export const Slider = ({
                     </div>
                 ))}
             </div>
-            <button className="main__cards__container-slider__container-slider__button-right" onClick={handleNextClick}>▶</button>
+            <button className="main__cards__container-slider__container-slider__button-right" style={{zIndex:'2'}} onClick={handleNextClick}>▶</button>
         </div>
     )
 }

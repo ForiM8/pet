@@ -5,7 +5,7 @@ import { useAuth } from '../../components/context/authContext/authContext';
 import { Slider } from '../../components/slider/slider';
 
 export const Cards = () => {
-    const { nextInfo, setBuyCount, buyMassiv, setBuyMassiv } = useAuth();
+    const { nextInfo, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount } = useAuth();
     const [count, setCount] = useState(1);
     const [listPromo, setListPromo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +32,7 @@ export const Cards = () => {
     }
     function buy() {
         setBuyCount(prev => prev + count)
+        
         const existingItem = buyMassiv.find(item => item.id === id);
         if (existingItem) {
             setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count + count } : item))
@@ -52,7 +53,18 @@ export const Cards = () => {
             )
             .finally(() => setIsLoading(false));
     }, [id]);
-
+    useEffect(() => {
+        const updatedModalCount = listPromo.map(elem => ({
+            id: elem.data.id,
+            price: elem.data.price,
+            img: elem.data.img,
+            title: elem.data.title,
+            count: elem.count,
+            total: elem.data.price * elem.count,
+            data: elem.data
+        }));
+        setModalCount(updatedModalCount);
+    }, [listPromo]);
     if (isLoading) {
         return <div className="loading__container">loading...</div>;
     }
@@ -60,8 +72,8 @@ export const Cards = () => {
         return <div className="loading__container">{error.message}</div>;
     }
 
-
-
+    
+    console.log("modalCount ggg", modalCount)
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             {listPromo.map((elem) => (

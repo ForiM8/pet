@@ -8,8 +8,9 @@ export const ModallRegisterContext = ({
 }) => {
     const [modalActiveRegister, setModalActiveRegister] = useState(false)
     const [modalActive, setModalActive] = useState(false)
+    const [modalOrderBuy, setModalOrderBuy] = useState(false)
     return (
-        <ModalRegisterContext.Provider value={{ modalActive,setModalActive, modalActiveRegister,setModalActiveRegister }}>
+        <ModalRegisterContext.Provider value={{ modalActive,setModalActive, modalActiveRegister,setModalActiveRegister,modalOrderBuy, setModalOrderBuy }}>
             {children}
         </ModalRegisterContext.Provider>
     )

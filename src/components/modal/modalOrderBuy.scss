@@ -1,0 +1,257 @@
+.modalOrder {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #00000066;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .4s;
+
+}
+
+.modalOrder.active {
+    z-index: 10;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal__modalOrder {
+    width: 578px;
+    height: 650px;
+    background-color: #FFFFFF;
+    z-index: 10;
+    border-bottom: 10px solid #46A358;
+
+    &__header {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(70, 163, 88, 0.06);
+        position: relative;
+        border-bottom: 1px solid #D1E9D6;
+
+        &-text {
+            font-family: Care pro;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 16px;
+            text-align: center;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            color: rgba(114, 114, 114, 1);
+        }
+
+        &-back {
+            position: absolute;
+            top: 17px;
+            right: 14px;
+            width: 18px;
+            height: 18px;
+            background-image: url('../../../public/svg/modalOrder/X.svg');
+            background-position: center;
+        }
+    }
+
+    &__text {
+        height: 66px;
+        width: 100%;
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #D1E9D6;
+        padding-left: 42px;
+        padding-right: 41px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 13px;
+
+        &__item {
+            width: auto;
+            height: auto;
+
+            &-head {
+                font-family: Care pro;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #727272;
+                margin-bottom: 3px;
+            }
+
+            &-large {
+                font-family: Care pro Bold;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #727272;
+            }
+        }
+
+        &-line {
+            height: 31px;
+            width: 1px;
+            //background-color: #D1E9D6;
+        }
+    }
+
+    &-head {
+        font-family: Care pro Bold;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 16px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #3D3D3D;
+        margin-left: 42px;
+        margin-bottom: 12px;
+    }
+
+    &__main {
+        width: 489px;
+        min-height: 70%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        //background-color: aqua;
+
+        &__header {
+            width: 100%;
+            height: 27px;
+            border-bottom: 1px solid rgba(70, 163, 88, 0.5);
+            display: flex;
+            margin-bottom: 10px;
+
+            &-item {
+                font-family: Care pro Medium;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #3D3D3D;
+            }
+        }
+
+        &__box {
+            height: auto;
+            width: 100%;
+            min-height: 310px;
+           // background-color: #727272;
+            margin-bottom: 20px;
+        }
+
+        &__container {
+            width: 100%;
+            height: 90px;
+           // background-color: #d2d2d2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &-button {
+                background-color: rgba(70, 163, 88, 1);
+                border: none;
+                width: 100px;
+                height: 50px;
+                font-family: Care pro Bold;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 16px;
+                border-radius: 5px;
+                color: rgba(255, 255, 255, 1);
+                cursor: pointer;
+            }
+
+            &__total {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+
+
+                &__item {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 25px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    &-shiping {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-price {
+                        font-family: Care pro Medium;
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-total {
+                        font-family: Care pro Bold;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-summ {
+                        font-family: Care pro Bold;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(70, 163, 88, 1);
+                    }
+                }
+
+                &__item:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+}
+
+
+.modal__modalOrder.active {
+    z-index: 10;
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+}

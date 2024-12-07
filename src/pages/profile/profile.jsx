@@ -2,28 +2,29 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../components/input/input"
 import { ProfileElement } from "../../components/profile/profile"
 import "./profile.scss"
-import { useModalRegister } from "../../components/context/modalContext/modalContext";
 import { useAuth } from "../../components/context/authContext/authContext";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export const Profile = () => {
-    const {setIsAuth, setAdminTrue} = useAuth()
+    const {setIsAuth, setAdminTrue, userName} = useAuth()
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
-        control,
         watch,
     } = useForm();
 
     const navigate = useNavigate()
+    
+    
 
+   
+
+    
     const logout = () => {
         navigate("/");
-        localStorage.removeItem("user");
         localStorage.removeItem("token");
-        localStorage.removeItem("email");
         setIsAuth(false);
         setAdminTrue(false)
       };
@@ -33,6 +34,8 @@ export const Profile = () => {
 
         }
     }
+
+    
     return (
         <div className="containerProfile">
             <div className="columLeft">
@@ -228,7 +231,7 @@ export const Profile = () => {
                                 label={'Confirm new password'}
                                 
                             />
-                            <button className="columRight__container__password-button">Save Change</button>
+                            <button  className="columRight__container__password-button">Save Change</button>
                         </div>
                     </form>
                 </div>

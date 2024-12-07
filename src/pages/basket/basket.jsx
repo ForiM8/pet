@@ -2,13 +2,20 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../components/context/authContext/authContext'
 import { Slider } from '../../components/slider/slider'
 import './basket.scss'
-import { getProduct, getProducts, removeOneProduct } from '../../components/request/request-product';
+import { getProduct } from '../../components/request/request-product';
 import { useNavigate } from 'react-router-dom';
 import { BasketCard } from '../../components/basket-card/basket-card';
+import { OrderBuy } from './orderBuy';
+import { ModalOrderBuy } from '../../components/modal/modalOrderBuy';
+import { useModalRegister } from '../../components/context/modalContext/modalContext';
+
+
 
 export const Basket = () => {
-    const { buyMassiv, setBuyMassiv,setBuyCount } = useAuth();
+    const { modalOrderBuy, setModalOrderBuy } = useModalRegister()
+    const { buyMassiv, setBuyMassiv, setBuyCount, modalCount, setModalCount , Total, SetTotal} = useAuth();
     const navigate = useNavigate()
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [listPromo, setListPromo] = useState([]);
     const [error, setError] = useState({
@@ -36,11 +43,11 @@ export const Basket = () => {
             .finally(() => setIsLoading(false));
     }, [buyMassiv]);
 
-    function Navigate(){
+    function Navigate() {
         navigate('/')
     }
 
-    console.log('listPromo',listPromo)
+    console.log('listPromo', listPromo)
     const subtotal = listPromo.reduce((sum, elem) => {
         const price = parseFloat(elem.data.price);
         const count = parseInt(elem.count, 10);
@@ -48,27 +55,59 @@ export const Basket = () => {
     }, 0);
 
     const shiping = 16
-    const Total = subtotal-shiping
+    SetTotal(subtotal - shiping) 
 
-    const removeProduct = (id) => {
-        const productToRemove = listPromo.find(elem => elem.id === id);
-        setBuyCount(prev => prev - productToRemove.count)
-        setBuyMassiv(prev => prev.filter(plan => plan.id !== id));
-        setListPromo(prev => prev.filter(plan => plan.id !== id));
-    };
+// {
+//     id:number
+//     count:number
+//     price:number
+//     image:string
+//     name:string
 
-    const countMinus = (id) => {
-        setListPromo(prev => prev.map(item => item.id === id ? { ...item, count: item.count - 1 } : item).filter(item => item.count > 0));
-        setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count - 1 } : item).filter(item => item.count > 0));
-        setBuyCount(prev => prev - 1)
-    };
+// }[]
+
+
+
+
+
+     const removeProduct = (id) => {
+    //     const productToRemove = listPromo.find(elem => elem.id === id);
+    //     setBuyCount(prev => prev - productToRemove.count)
+    //     setBuyMassiv(prev => prev.filter(prev => prev.id !== id));
+    //     setListPromo(prev => prev.filter(prev => prev.id !== id));
+      
+     };
+
+     const countMinus = (id) => {
+
+        // setListProducts(prev=>[...prev.map(product=>product.id === id ? ({...product, count:product.count - 1 }))])
+        //  setListPromo(prev => prev.map(prev => prev.id === id ? { ...prev, count: prev.count - 1 } : prev).filter(prev => prev.count > 0));
+        //  setBuyMassiv(prev => prev.map(prev => prev.id === id ? { ...prev, count: prev.count - 1 } : prev).filter(prev => prev.count > 0));
+        //  setBuyCount(prev => prev - 1)
+      
+     };
     const countPlus = (id) => {
-        setListPromo(prev => prev.map(item => item.id === id ? { ...item, count: item.count + 1 } : item));
-        setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count + 1 } : item));
-        setBuyCount(prev => prev + 1)
+    //     setListPromo(prev => prev.map(prev => prev.id === id ? { ...prev, count: prev.count + 1 } : prev));
+    //     setBuyMassiv(prev => prev.map(prev => prev.id === id ? { ...prev, count: prev.count + 1 } : prev));
+    //     setBuyCount(prev => prev + 1)
+       
     };
 
-    
+    useEffect(() => {
+        const updatedModalCount = listPromo.map(elem => ({
+            id: elem.data.id,
+            price: elem.data.price,
+            img: elem.data.img,
+            title: elem.data.title,
+            count: elem.count,
+            total: elem.data.price * elem.count,
+            data: elem.data
+        }));
+        setModalCount(updatedModalCount);
+    }, [listPromo]);
+
+    console.log("modalCount", modalCount)
+
     return (
         <div className='main__basket'>
             <p className='main__basket-routes'><span className='main__basket-routes-span'>Home</span>  / Shop / Shopping Cart </p>
@@ -83,13 +122,13 @@ export const Basket = () => {
                         <p className="main__basket__container__left__header-text">Total</p>
                     </div>
                     {listPromo.map((elem) => {
-                        console.log('index: ',elem.id)
+                        console.log('index: ', elem.id)
                         const price = elem.data.price;
                         const count = elem.count;
                         const total = price * count;
                         console.log(total)
                         return (
-                            <BasketCard 
+                            <BasketCard
                                 key={elem.id}
                                 img={elem.data.img}
                                 title={elem.data.title}
@@ -137,10 +176,14 @@ export const Basket = () => {
                             <div className="main__basket__container__right__button__header-total">Total</div>
                             <div className="main__basket__container__right__button__header-count">${Total.toFixed(2)}</div>
                         </div>
-                        <button className="main__basket__container__right__button-buttonGreen">Proceed To Checkout</button>
+                        <button onClick={() => setModalOrderBuy(prev => !prev)} className="main__basket__container__right__button-buttonGreen">Place order</button>
                         <button onClick={Navigate} className="main__basket__container__right__button-buttonWhite">Continue Shopping</button>
                     </div>
                 </div>
+
+                <ModalOrderBuy active={modalOrderBuy} setModalOrderBuy={setModalOrderBuy}>
+                        
+                </ModalOrderBuy>
 
             </div>
 

@@ -1,19 +1,15 @@
-import { useState } from "react"
 import { Input } from "../../input/input"
-import { Modal } from "../../modal/modal"
 import "./login.scss"
 import { useModalRegister } from "../../context/modalContext/modalContext"
 import { useForm } from "react-hook-form"
 import { Admin, useAuth } from "../../context/authContext/authContext"
-import { ModalRegister } from "../../modal/modalRegister"
 import { getAuth } from "../../request/request"
 import { Registerr } from "../register/register"
-import { useNavigate } from "react-router-dom"
 
 
 export const Login = () => {
 
-    const { modalActiveRegister, modalActive, setModalActiveRegister, setModalActive } = useModalRegister()
+    const { setModalActiveRegister, setModalActive } = useModalRegister()
 
     const {
         register,
@@ -21,7 +17,7 @@ export const Login = () => {
         watch,
     } = useForm();
 
-    const { setIsAuth, setAdminTrue } = useAuth()
+    const { setIsAuth, setAdminTrue, setProfileInfo } = useAuth()
 
 
     const onSubmit = (data) => {
@@ -34,18 +30,19 @@ export const Login = () => {
                     setIsAuth(prev => !prev)
                     setAdminTrue(prev => !prev)
                     console.log(Admin.password)
-                    console.log('data'. data)
+                    console.log('data'.data)
                     getAuth().then(({ data }) => {
                         localStorage.setItem("token", data.token)
                         localStorage.setItem("user", Admin.password);
                         localStorage.setItem("email", Admin.email);
                     })
                     setModalActive(prev => !prev)
+                    setProfileInfo({ user: Admin.password, email: Admin.email })
                 }
             } else if (emailExists) {
                 if (passwordExists) {
                     setIsAuth(prev => !prev)
-                    
+
                     alert("вы успешно вошли")
                     localStorage.setItem("token", data.token);
                     getAuth().then(({ data }) => {
@@ -54,6 +51,8 @@ export const Login = () => {
                         localStorage.setItem("email", Registerr[Registerr.length - 1].email);
                     })
                     setModalActive(prev => !prev)
+
+                    setProfileInfo({ user: Registerr[Registerr.length - 1].user, email: Registerr[Registerr.length - 1].email })
                 } else {
                     alert('не правильный пароль')
                 }

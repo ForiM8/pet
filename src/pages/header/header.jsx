@@ -19,14 +19,15 @@ export const Header = () => {
 
     const { modalActiveRegister, setModalActiveRegister, modalActive, setModalActive } = useModalRegister()
 
-    const {isAuth, buyCount} = useAuth()
+    const {isAuth, buyCount, profileInfo,buyMassiv} = useAuth()
 
-    const Name = localStorage.getItem('user')
+    console.log("buyMassiv header", buyMassiv)
     
     function Navigate(){
         navigate('/profile')
     }
 
+    console.log(isAuth)
     return (
         <div className="header__container">
             <div className="container__block">
@@ -81,7 +82,7 @@ export const Header = () => {
                     </button>)}
                     {isAuth && (<button onClick={Navigate} className="container__block__icon__login">
 
-                            <Link to="/profile" className="container__block__icon__login-text" style={{textDecoration:'none'}}>{Name}</Link>
+                            <Link to="/profile" className="container__block__icon__login-text" style={{textDecoration:'none'}}>{profileInfo?.user||'Нет имени'}</Link>
                     </button>)}
                     <Modal active={modalActive} setActive={setModalActive}>
                         <Login />

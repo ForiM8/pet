@@ -163,6 +163,16 @@
             &__product:last-child {
                 margin-bottom: 0px;
             }
+
+            &__product1{
+                width: 100%;
+                height: 70px;
+                background-color: #FBFBFB;
+                display: grid;
+                align-items: center;
+                grid-template-columns: [start] 84px [line2] 226px [line3] 110px [line4] 162px [end];
+                margin-bottom: 10px;
+            }
         }
 
         &__right {
