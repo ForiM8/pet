@@ -26,6 +26,7 @@
     background-color: #FFFFFF;
     z-index: 10;
     border-bottom: 10px solid #46A358;
+    overflow-y: scroll;
 
     &__header {
         width: 100%;
@@ -49,6 +50,9 @@
         }
 
         &-back {
+            background: none;
+            border: none;
+            cursor: pointer;
             position: absolute;
             top: 17px;
             right: 14px;
@@ -56,6 +60,7 @@
             height: 18px;
             background-image: url('../../../public/svg/modalOrder/X.svg');
             background-position: center;
+
         }
     }
 
@@ -167,7 +172,7 @@
                 background-color: rgba(70, 163, 88, 1);
                 border: none;
                 width: 100px;
-                height: 50px;
+                height: 60px;
                 font-family: Care pro Bold;
                 font-size: 16px;
                 font-weight: 700;

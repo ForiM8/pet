@@ -22,12 +22,15 @@ export const Register = () => {
         watch,
     } = useForm();
 
-    const { isAuth, setIsAuth } = useAuth()
+    const { isAuth, setIsAuth,setUser, user } = useAuth()
 
 
     const onSubmit = (data) => {
         if (watch("password") === watch("confirmPassword")) {
-           
+            setUser({
+                userName: data.user,
+                email: data.email,
+            })
             console.log(isAuth)
             Registerr.push(data)
             console.log(data)
@@ -56,7 +59,7 @@ export const Register = () => {
                         classNameWrapper={'wrapper'}
                         input_type={'User'}
                         name={"user"}
-                        label={"Username"}
+                        label={"Nickname"}
                         register={register}
                         validate={{ validate: true }}
                         classNameInput={'modal__contentLogin__inputBox__input'}

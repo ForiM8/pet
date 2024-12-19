@@ -1,0 +1,145 @@
+.main__userOrders {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 900px;
+    //background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+
+    &-routes {
+        font-family: 'Care pro';
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 36px;
+        color: rgba(61, 61, 61, 1);
+    }
+
+    &__orders {
+        width: 100%;
+        max-width: 550px;
+        height: auto;
+        background-color: #F6DBDB;
+        border-radius: 8px;
+        padding: 16px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 22px;
+        display: flex;
+        flex-direction: column;
+
+        &__right {
+            height: auto;
+            width: auto;
+            max-width: 972px;
+
+            &-header {
+                //styleName: Desktop/H3/blod;
+                font-family: Care pro Bold;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 28.8px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+            }
+
+            &-text {
+                //styleName: Desktop/Body/1;
+                width: 972px;
+                height: 90px;
+                font-family: Rubik;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22.4px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+
+            }
+
+            &__small {
+                width: 425px;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 4px;
+                margin-bottom: 16px;
+
+                &-left {
+                    //styleName: Desktop/Body/2;
+                    font-family: Rubik;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16.8px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+
+                    .span {
+                        //styleName: Desktop/H4/blod;
+                        font-family: Rubik;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 19.2px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                }
+            }
+
+            &__block {
+                width: 267px;
+                height: auto;
+                display: flex;
+                justify-content: space-between;
+
+                &-green {
+                    width: 153px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 8px;
+                    background-color: #2F8C25;
+                    //styleName: Desktop/Button/Medium;
+                    color: #FFFFFF;
+                    font-family: Rubik;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    text-decoration-skip-ink: none;
+                    cursor: pointer;
+                }
+
+                &-red {
+                    width: 98px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 8px;
+                    background-color: #8C3325;
+                    //styleName: Desktop/Button/Medium;
+                    color: #FFFFFF;
+                    font-family: Rubik;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    text-decoration-skip-ink: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.modal__modalOrder__main__box1{
+    height: auto;
+    width: 100%;
+    /* min-height: 310px; */
+    margin-bottom: 20px;
+}

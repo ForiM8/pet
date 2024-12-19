@@ -9,6 +9,7 @@ export const Input = ({
     classNameInput,
     classNameWrapper,
     labelSymbol,
+    placeholder,
     inside
 }) => {
     return (
@@ -17,7 +18,8 @@ export const Input = ({
                 defaultValue={initialValue}
                 type={input_type}
                 className={classNameInput}
-                required="required">{inside}</input>
+                required="required"
+                placeholder={placeholder}>{inside}</input>
             <label className={classNameLabel} style={{ display: 'flex' }}>{label} <div style={{color:"#F03800", marginLeft:'3px'}}>{labelSymbol}</div></label>
         </div>
     )

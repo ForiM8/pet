@@ -19,10 +19,16 @@ export const AuthhContext = ({children}) =>{
     const [Total, SetTotal] = useState(0)
     const [userName, setUserName] = useState([])
     const [profileInfo, setProfileInfo] = useState({})
+    const [listPromo, setListPromo] = useState([])
+    const [payMethod, setPayMethod] = useState('')
+
+    const [user, setUser] = useState({
+       
+    })
 
 
     return(
-        <AuthContext.Provider value={ {userName, setUserName,Total, SetTotal, isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount, profileInfo, setProfileInfo} }>
+        <AuthContext.Provider value={ {user, setUser,payMethod, setPayMethod,listPromo, setListPromo,userName, setUserName,Total, SetTotal, isAuth, setIsAuth,adminTrue, setAdminTrue,nextInfo, setNextInfo,buyCount, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount, profileInfo, setProfileInfo} }>
             {children}
         </AuthContext.Provider>
     )

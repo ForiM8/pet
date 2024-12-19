@@ -74,6 +74,9 @@
                 padding-left: 14px;
                 box-sizing: border-box;
                 border-radius: 5px;
+                background: none;
+                z-index: 10;
+                position: relative;
             }
 
             .modal__contentLogin__inputBox__input:focus {
@@ -101,6 +104,7 @@
                 top: -0.7rem;
                 left: .5rem;
                 background-color: #fff;
+                z-index: 11;
             }
         }
 

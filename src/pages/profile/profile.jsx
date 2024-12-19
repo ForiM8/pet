@@ -7,35 +7,59 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export const Profile = () => {
-    const {setIsAuth, setAdminTrue, userName} = useAuth()
+    const { setIsAuth, setAdminTrue, userName, setUser } = useAuth()
+
+    const defaultData =
+        localStorage.getItem("feedback") &&
+        JSON.parse(localStorage.getItem("feedback"));
+
+    const user =
+        localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
 
     const {
         register,
+        getValues,
+        formState: { errors },
         handleSubmit,
-        watch,
-    } = useForm();
+        reset,
+    } = useForm({
+        defaultValues: { Username: user?.userName || "", ...defaultData,  Email_address: user?.email || "", ...defaultData, First_Name: user?.First_Name || "", ...defaultData, Last_Name: user?.Last_Name || "", ...defaultData, Phone_Number: user?.Phone_Number || "", ...defaultData,},
+    });
+
+    useEffect(() => {
+        return () => updateValues();
+      }, []);
+
+    const updateValues = () => {
+        if (JSON.stringify(defaultData) !== JSON.stringify(getValues())) {
+            localStorage.setItem("feedback", JSON.stringify(getValues()));
+        }
+    };
+    const onSubmit = (data) => {}
+
+    const onSubmitOne = (data) => {
+        reset({
+            First_Name: "",
+            Last_Name: "",
+            Email_address:'',
+            Phone_Number: "",
+            Username: '',
+        });
+        localStorage.removeItem("feedback");
+    };
 
     const navigate = useNavigate()
-    
-    
 
-   
-
-    
     const logout = () => {
         navigate("/");
         localStorage.removeItem("token");
+        localStorage.removeItem("userAdmin");
+        localStorage.removeItem("emailAdmin");
         setIsAuth(false);
         setAdminTrue(false)
-      };
+    };
 
-    const onSubmit = (data) => {
-        if (watch("password") === watch("confirmPassword")) {
 
-        }
-    }
-
-    
     return (
         <div className="containerProfile">
             <div className="columLeft">
@@ -132,7 +156,7 @@ export const Profile = () => {
             <div className="columRight">
                 <div className="columRight__container">
                     <div className="columRight__container-header">Personal Information</div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(updateValues)}>
                         <div className="columRight__container__personal">
                             <Input
                                 input_type={'text'}
@@ -146,7 +170,7 @@ export const Profile = () => {
                             />
                             <Input
                                 input_type={'text'}
-                                name={"First_Name"}
+                                name={"Last_Name"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
@@ -156,7 +180,7 @@ export const Profile = () => {
                             />
                             <Input
                                 input_type={'text'}
-                                name={"First_Name"}
+                                name={"Email_address"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
@@ -166,7 +190,7 @@ export const Profile = () => {
                             />
                             <Input
                                 input_type={'text'}
-                                name={"First_Name"}
+                                name={"Phone_Number"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
@@ -176,7 +200,7 @@ export const Profile = () => {
                             />
                             <Input
                                 input_type={'text'}
-                                name={"First_Name"}
+                                name={"Username"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
@@ -185,13 +209,13 @@ export const Profile = () => {
                                 labelSymbol={'*'}
                             />
 
-                            
+
                             <div className="columRight__container__personal__photo">
                                 <div className="columRight__container__personal__photo-header">Photo</div>
                                 <div className="columRight__container__personal__photo__block">
                                     <div className="columRight__container__personal__photo__block-image"></div>
                                     <button className="columRight__container__personal__photo__block-change">Change</button>
-                                    <button className="columRight__container__personal__photo__block-remove">Remove</button>
+                                    <button onClick={onSubmitOne} className="columRight__container__personal__photo__block-remove">Remove</button>
                                 </div>
                             </div>
 
@@ -203,35 +227,35 @@ export const Profile = () => {
                         <div className="columRight__container__password">
                             <Input
                                 input_type={'password'}
-                                name={"First_Name"}
+                                name={"Current_password"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
                                 classNameLabel={'columRight__container__personal__wrapper-label'}
                                 label={'Current password'}
-                                
+
                             />
                             <Input
                                 input_type={'password'}
-                                name={"First_Name"}
+                                name={"New_password"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
                                 classNameLabel={'columRight__container__personal__wrapper-label'}
                                 label={'New password'}
-                               
+
                             />
                             <Input
                                 input_type={'password'}
-                                name={"First_Name"}
+                                name={"Confirm_new_password"}
                                 classNameWrapper={'columRight__container__personal__wrapper'}
                                 register={register}
                                 classNameInput={'columRight__container__personal__wrapper-input'}
                                 classNameLabel={'columRight__container__personal__wrapper-label'}
                                 label={'Confirm new password'}
-                                
+
                             />
-                            <button  className="columRight__container__password-button">Save Change</button>
+                            <button className="columRight__container__password-button">Save Change</button>
                         </div>
                     </form>
                 </div>

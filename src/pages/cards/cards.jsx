@@ -5,11 +5,13 @@ import { useAuth } from '../../components/context/authContext/authContext';
 import { Slider } from '../../components/slider/slider';
 
 export const Cards = () => {
-    const { nextInfo, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount } = useAuth();
+    const { nextInfo, setBuyCount, buyMassiv, setBuyMassiv, modalCount, setModalCount, listPromo, setListPromo} = useAuth();
     const [count, setCount] = useState(1);
-    const [listPromo, setListPromo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
+    const [render, setIsRender] = useState([]);
+    const user =
+        localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"));
+    
     const [error, setError] = useState({
         status: false,
         message: "",
@@ -18,53 +20,92 @@ export const Cards = () => {
     const [buyBox, setBuyBox] = useState({
         id: null,
         count: null,
-    })
+    });
 
     const id = nextInfo;
 
     function clikPlus() {
-        setCount(prev => prev + 1)
+        setCount(prev => prev + 1);
     }
+
     function clikMinus() {
         if (count > 0) {
-            setCount(prev => prev - 1)
+            setCount(prev => prev - 1);
         }
     }
-    function buy() {
-        setBuyCount(prev => prev + count)
-        
+    const buy = () => {
+        setBuyCount(prev => prev + count);
+
         const existingItem = buyMassiv.find(item => item.id === id);
         if (existingItem) {
-            setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count + count } : item))
+            setBuyMassiv(prev => prev.map(item => item.id === id ? { ...item, count: item.count + count } : item));
         } else {
-            setBuyMassiv(prev => [...prev, { id: id, count: count }])
+            setBuyMassiv(prev => [...prev, { id: id, count: count }]);
         }
-
-    }
-    console.log(buyMassiv)
+    };
     useEffect(() => {
         setIsLoading(true);
+        getProduct(id)
+            .then((data) => {
+                setIsRender([data.data]);
+            })
+            .catch((error) =>
+                setError({ status: true, message: new Error(error).message })
+            )
+            .finally(() => setIsLoading(false));
+    }, [id]);
+    useEffect(() => {
         getProduct(id)
             .then((data) => {
                 setListPromo([data.data]);
             })
             .catch((error) =>
-                setError({ status: true, message: Error(error).message })
+                setError({ status: true, message: new Error(error).message })
             )
             .finally(() => setIsLoading(false));
     }, [id]);
+
     useEffect(() => {
-        const updatedModalCount = listPromo.map(elem => ({
-            id: elem.data.id,
-            price: elem.data.price,
-            img: elem.data.img,
-            title: elem.data.title,
-            count: elem.count,
-            total: elem.data.price * elem.count,
-            data: elem.data
-        }));
+        if (buyMassiv.length === 0) return;
+
+        const promises = buyMassiv.map(element =>
+            getProduct(element.id, element.count)
+                .then(data => ({ id: element.id, data: data.data, count: element.count }))
+                .catch(error => {
+                    setError({ status: true, message: error.message });
+                    return null;
+                })
+        );
+
+        Promise.all(promises)
+            .then(results => {
+                const validResults = results.filter(result => result);
+                setListPromo(validResults);
+            })
+            .finally(() => setIsLoading(false));
+    }, [buyMassiv]);
+
+    useEffect(() => {
+        const updatedModalCount = listPromo.map(elem => {
+            if (elem && elem.data) {
+                return {
+                    id: elem.id,
+                    name: user.userName,
+                    price: elem.data.price,
+                    img: elem.data.img,
+                    title: elem.data.title,
+                    count: elem.count,
+                    total: elem.data.price * elem.count,
+                    data: elem.data
+                };
+            } else {
+                return null;
+            }
+        })
+
         setModalCount(updatedModalCount);
     }, [listPromo]);
+
     if (isLoading) {
         return <div className="loading__container">loading...</div>;
     }
@@ -72,12 +113,14 @@ export const Cards = () => {
         return <div className="loading__container">{error.message}</div>;
     }
 
-    
-    console.log("modalCount ggg", modalCount)
+    console.log("listPromo ggg", listPromo);
+    console.log('modalCount - ', modalCount);
+    console.log('buyMassiv - ', buyMassiv);
+
     return (
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            {listPromo.map((elem) => (
-                <div className="main__cards">
+            {render.map((elem) => (
+                <div className="main__cards" key={elem.id}>
                     <p className='main__cards-routes'><span className='main__cards-routes-span'>Home</span>  / Shop</p>
 
                     <div className="main__cards__container-short">
@@ -191,7 +234,6 @@ export const Cards = () => {
                         <div className="main__cards__container-slider__header">
                             <div className="main__cards__container-slider__header-text">Releted Products</div>
                         </div>
-
 
                         <Slider />
 

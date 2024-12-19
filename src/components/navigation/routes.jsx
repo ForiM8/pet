@@ -6,6 +6,8 @@ import { Profile } from "../../pages/profile/profile";
 import { Main } from "../../pages/main";
 import { Cards } from "../../pages/cards/cards";
 import { Basket } from "../../pages/basket/basket";
+import { Checkout } from "../../pages/checkout/checkout";
+import { UserOrders } from "../../pages/userOrders/userOrders";
 
 
 
@@ -14,7 +16,7 @@ const authPages = [
     path: "/profile",
     Component: Profile,
   },
-  
+
   {
     path: "/basket",
     Component: Basket,
@@ -22,7 +24,15 @@ const authPages = [
   {
     path: "/cards",
     Component: Cards,
-  }
+  },
+  {
+    path: '/checkout',
+    Component: Checkout
+  },
+  {
+    path: "/userOrders",
+    Component: UserOrders,
+  },
 ];
 
 const notAuthPages = [
@@ -41,6 +51,28 @@ export const getRoutes = (isAuth) => {
         {
           path: "/",
           Component: Main,
+        },
+        {
+          path: '/checkout',
+          Component: Checkout
+        },
+        {
+          path: "/profile",
+          Component: Profile,
+        },
+
+        {
+          path: "/basket",
+          Component: Basket,
+        },
+        {
+          path: "/cards",
+          Component: Cards,
+        },
+        ,
+        {
+          path: "/userOrders",
+          Component: UserOrders,
         },
 
         ...(isAuth ? authPages : notAuthPages),

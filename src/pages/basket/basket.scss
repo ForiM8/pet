@@ -170,9 +170,10 @@
                 background-color: #FBFBFB;
                 display: grid;
                 align-items: center;
-                grid-template-columns: [start] 84px [line2] 226px [line3] 110px [line4] 162px [end];
+                grid-template-columns: [start] 84px [line2] 226px [line3] 110px [line4] 1px [end];
                 margin-bottom: 10px;
             }
+            
         }
 
         &__right {

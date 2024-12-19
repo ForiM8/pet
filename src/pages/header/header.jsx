@@ -1,16 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./header.scss"
-import { useEffect, useState } from "react";
-import { getProducts } from "../../components/request/request-product";
 import { Modal } from "../../components/modal/modal";
-import { Login, Name } from "../../components/header/login/login";
-import { Input } from "../../components/input/input";
-import { useForm } from "react-hook-form";
+import { Login } from "../../components/header/login/login";
 import { useAuth } from "../../components/context/authContext/authContext";
 import { useModalRegister } from "../../components/context/modalContext/modalContext";
 import { ModalRegister } from "../../components/modal/modalRegister";
-import { Register, Registerr } from "../../components/header/register/register";
-import { getProfile } from "../../components/request/request";
+import { Register } from "../../components/header/register/register";
 
 
 export const Header = () => {
@@ -19,7 +14,7 @@ export const Header = () => {
 
     const { modalActiveRegister, setModalActiveRegister, modalActive, setModalActive } = useModalRegister()
 
-    const {isAuth, buyCount, profileInfo,buyMassiv} = useAuth()
+    const {isAuth, buyCount, profileInfo,buyMassiv,adminTrue} = useAuth()
 
     console.log("buyMassiv header", buyMassiv)
     
@@ -57,8 +52,8 @@ export const Header = () => {
                 <div className="container__block__text">
                     <Link to='./' className="container__block__text active">Home</Link>
                     {isAuth && (<Link to='./basket'className="container__block__text">Shop</Link>)}
-                    <Link className="container__block__text">Plant Care</Link>
-                    <Link className="container__block__text">Blogs</Link>
+                    {isAuth && ( <Link to = './checkout'className="container__block__text">Checkout</Link>)}
+                    {adminTrue && (<Link to='./userOrders' className="container__block__text">userOrders</Link>)}
                 </div>
                 <div className="container__block__icon">
 

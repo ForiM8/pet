@@ -17,7 +17,7 @@ export const Login = () => {
         watch,
     } = useForm();
 
-    const { setIsAuth, setAdminTrue, setProfileInfo } = useAuth()
+    const { setIsAuth, setAdminTrue, setProfileInfo, user } = useAuth()
 
 
     const onSubmit = (data) => {
@@ -33,8 +33,8 @@ export const Login = () => {
                     console.log('data'.data)
                     getAuth().then(({ data }) => {
                         localStorage.setItem("token", data.token)
-                        localStorage.setItem("user", Admin.password);
-                        localStorage.setItem("email", Admin.email);
+                        localStorage.setItem("userAdmin", Admin.password);
+                        localStorage.setItem("emailAdmin", Admin.email);
                     })
                     setModalActive(prev => !prev)
                     setProfileInfo({ user: Admin.password, email: Admin.email })
@@ -47,8 +47,7 @@ export const Login = () => {
                     localStorage.setItem("token", data.token);
                     getAuth().then(({ data }) => {
                         localStorage.setItem("token", data.token)
-                        localStorage.setItem("user", Registerr[Registerr.length - 1].user);
-                        localStorage.setItem("email", Registerr[Registerr.length - 1].email);
+                        localStorage.setItem("user", JSON.stringify(user));
                     })
                     setModalActive(prev => !prev)
 

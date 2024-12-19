@@ -1,0 +1,489 @@
+.main__checkout {
+    margin-top: 36px;
+    width: 1200px;
+    min-height: 902px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 210px;
+
+    &-routes {
+        font-family: 'Care pro';
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 16px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        margin-bottom: 36px;
+        color: rgba(61, 61, 61, 1);
+    }
+
+    &__container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+            width: 722px;
+            height: 724px;
+            //background-color: aquamarine;
+
+            &-header {
+                font-family: Care pro Bold;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #3D3D3D;
+                margin-bottom: 21px;
+            }
+
+            &__person {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+
+                &__wrapper {
+                    width: 350px;
+                    height: 65px;
+                    position: relative;
+                    //background-color: antiquewhite;
+                    margin: auto auto 30px 0px;
+
+                    &-label {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 15px;
+                        color: #3D3D3D;
+                    }
+
+                    &-input {
+                        width: 99%;
+                        height: 40px;
+                        position: absolute;
+                        bottom: 0px;
+                        border-radius: 3px;
+                        border: 1px solid #A5A5A5;
+                        background: none;
+                        padding-left: 13px;
+                        box-sizing: border-box;
+                        font-family: Care pro;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 15px;
+                    }
+                }
+            }
+
+            &__checkbox {
+                display: flex;
+                margin-bottom: 54px;
+
+                &-radio {
+                    border-radius: 50%;
+                    background-color: none;
+                    border: 2px solid #46A358;
+                }
+
+                &-text {
+                    margin-left: 7px;
+                    font-family: Care pro Medium;
+                    font-size: 15px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: #3D3D3D;
+                }
+            }
+
+            &__wrapper {
+                width: 350px;
+                height: 177px;
+                position: relative;
+                //background-color: antiquewhite;
+                margin: auto auto 30px 0px;
+
+                &-label {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 15px;
+                    color: #3D3D3D;
+                }
+
+                &-input {
+                    width: 99%;
+                    height: 154px;
+                    position: absolute;
+                    bottom: 0px;
+                    border-radius: 3px;
+                    border: 1px solid #A5A5A5;
+                    background: none;
+                    padding-left: 13px;
+                    box-sizing: border-box;
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 15px;
+                    
+                }
+            }
+        }
+
+        &__right {
+            width: 405px;
+            height: auto;
+            //background-color: aqua;
+
+            &-head {
+                font-family: Care pro Bold;
+                font-size: 17px;
+                font-weight: 700;
+                line-height: 16px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #3D3D3D;
+                margin-bottom: 21px;
+            }
+
+            &__header {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: 27px;
+                border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
+                margin-bottom: 11px;
+
+                &-text {
+                    font-family: "Care pro Medium";
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(61, 61, 61, 1);
+                }
+            }
+
+            &__box {
+                width: 100%;
+                min-height: 230px;
+                height: auto;
+
+                .main__basket__container__left__product2 {
+                    margin-top: 11px;
+                    width: 100%;
+                    height: 70px;
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: [start] 81px [line2] 180px [line3] 58px [line4] 85px [end];
+                    background-color: #FBFBFB;
+
+                    &-img {
+                        width: 70px;
+                        height: 70px;
+                    }
+
+                    &__block-head {
+                        font-family: Care pro Medium;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                        margin-bottom: 6px;
+                    }
+
+                    &__block-sku {
+                        font-family: Care pro;
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                        color: #727272;
+
+                        .span {
+                            color: #A5A5A5;
+                        }
+                    }
+
+                    &-price {
+                        font-family: Care pro Medium;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(114, 114, 114, 1);
+                    }
+
+                    &__quantity {
+                        width: 29px;
+                        height: auto;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        &-count {
+                            font-family: Care pro;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 16px;
+                            text-align: right;
+                            text-underline-position: from-font;
+                            text-decoration-skip-ink: none;
+                            color: rgba(114, 114, 114, 1);
+                        }
+
+                    }
+
+                    &-total {
+                        font-family: Care pro Bold;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                        color: #46A358;
+                    }
+
+                    &-del {
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                        background: none;
+                        background-image: url('../../../public/svg/basket/Delete.svg');
+                        background-position: center;
+                        border: none;
+                    }
+                }
+            }
+
+            &__cupon {
+                margin-top: 17px;
+                width: 100%;
+                height: auto;
+
+                &__text {
+                    font-family: Care pro;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    text-align: right;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    margin-bottom: 19px;
+
+                    &-span {
+                        font-family: Care pro;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(70, 163, 88, 1);
+                    }
+                }
+
+
+            }
+
+            &__text {
+                width: 321px;
+                height: auto;
+                margin-bottom: 16px;
+
+                &__box {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+
+                    &-left {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #3D3D3D;
+                    }
+
+                    &-right {
+                        font-family: Care pro Medium;
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+
+                    }
+                }
+
+                &__box:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+
+            &__button {
+                width: 321px;
+                height: auto;
+                padding-top: 10px;
+                box-sizing: border-box;
+                border-top: 0.3px solid rgba(70, 163, 88, 0.5);
+
+                &__header {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 29px;
+
+                    &-total {
+                        font-family: Care pro Bold;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                    &-count {
+                        font-family: Care pro Bold;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 16px;
+                        text-align: right;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: #46A358;
+                    }
+
+
+                }
+
+                &-buttonGreen {
+                    width: 100%;
+                    height: 40px;
+                    background-color: #46A358;
+                    border: none;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-family: Care pro Bold;
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    cursor: pointer;
+                }
+
+                &-buttonWhite {
+                    width: 100%;
+                    height: 40px;
+                    background-color: #ffffff;
+                    border: none;
+                    border-radius: 3px;
+                    color: #46A358;
+                    font-family: Care pro;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    cursor: pointer;
+                }
+            }
+
+            &__pay {
+                width: 321px;
+                height: auto;
+
+                &-head {
+                    font-family: Care pro Bold;
+                    font-size: 17px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    text-align: left;
+                    text-underline-position: from-font;
+                    text-decoration-skip-ink: none;
+                    color: rgba(61, 61, 61, 1);
+                    margin-bottom: 19px;
+                }
+
+                &__block {
+                    width: 321px;
+                    height: 45px;
+                    border-radius: 3px;
+                    border: 1px solid rgba(234, 234, 234, 1);
+                    display: flex;
+                    align-items: center;
+                    padding-left: 11px;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+
+                    &-radio {
+                        margin-right: 6px;
+                    }
+
+                    &-img {
+                        width: 224px;
+                        height: 26px;
+                        background-image: url('../../../public/png/chexkout/pay.png');
+                    }
+
+                    &-text {
+                        font-family: Care pro;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 16px;
+                        text-align: left;
+                        text-underline-position: from-font;
+                        text-decoration-skip-ink: none;
+                        color: rgba(61, 61, 61, 1);
+                    }
+
+                }
+                &__block:last-child {
+                    margin-bottom: 0px;
+                }
+
+                &-button {
+                    margin-top: 34px;
+                    width: 321px;
+                    background: rgba(70, 163, 88, 1);
+                    border: none;
+                    height: 40px;
+                    border-radius: 3px;
+                    font-family: Care pro Bold;
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
